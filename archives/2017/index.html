@@ -273,12 +273,12 @@
     }
 </style>
 </div>
-            <h1 id="Welcome-to-MaxwellWave’s-blog"><a href="#Welcome-to-MaxwellWave’s-blog" class="headerlink" title="Welcome to MaxwellWave’s blog"></a>Welcome to MaxwellWave’s blog</h1><h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p>本博客是博主MaxwellWave的个人网站，主要用来记录自己的学习过程，涉及数字IC、FPGA、Linux等方面的相关知识。</p>
+            <h1 id="Welcome-to-MaxwellWave’s-blog"><a href="#Welcome-to-MaxwellWave’s-blog" class="headerlink" title="Welcome to MaxwellWave’s blog"></a>Welcome to MaxwellWave’s blog</h1><h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p>本博客是博主MaxwellWave的个人网站，主要用来记录自己的学习过程，涉及数字IC、FPGA、Linux等方面的相<br>关知识。</p>
 <p>到目前为止已经记录了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
 <p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<p>目前本站未开通评论功能，您可通过头像下方的知乎链接私信博主，也可以通过邮件<a href="mailto:&#109;&#97;&#x78;&#x77;&#x65;&#108;&#x6c;&#119;&#x61;&#118;&#x65;&#64;&#102;&#x6f;&#x78;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;">&#109;&#97;&#x78;&#x77;&#x65;&#108;&#x6c;&#119;&#x61;&#118;&#x65;&#64;&#102;&#x6f;&#x78;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;</a>联系</p>
+<p>目前本站未开通评论功能，您可通过头像下方的知乎链接私信博主，也可以通过邮件<a href="mailto:&#x6d;&#x61;&#120;&#x77;&#101;&#108;&#108;&#119;&#97;&#118;&#101;&#x40;&#x66;&#x6f;&#120;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x6d;&#x61;&#120;&#x77;&#101;&#108;&#108;&#119;&#97;&#118;&#101;&#x40;&#x66;&#x6f;&#120;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>联系</p>
 <h2 id="关于名称"><a href="#关于名称" class="headerlink" title="关于名称"></a>关于名称</h2><p>博主本科是学通信的，在学习理论知识的时候并没有直观地感受到麦克斯韦的强大，直到在大三的时候自己手动焊接一步一步做了一个收音机才深刻感受到电磁波的魅力，才知道除了我们肉眼可见的真实世界之外，物质还存在在一种新的形式——电磁波，故博主以麦克斯韦电磁波作为网站名称致敬，但由于英文 <strong>Maxwell Electromagnetic Waves</strong>太长，博主就将 <strong>Electromagnetic</strong>删除，这就有了本站名称的由来~</p>
-<h2 id="关于平台"><a href="#关于平台" class="headerlink" title="关于平台"></a>关于平台</h2><p>本站是通过 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，部署在 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>主题 <a target="_blank" rel="noopener" href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 已经在github上开源，大家如有需要可自行前往下载</p>
+<h2 id="关于平台"><a href="#关于平台" class="headerlink" title="关于平台"></a>关于平台</h2><p>本站是通过 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，部署在 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>主题 <a target="_blank" rel="noopener" href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 原创作者叶落阁已经在github上开源，大家如有需要可自行前往下载</p>
 <p>本站主要功能：</p>
 <ul>
 <li><p>搜索支持文章标题、标签(#标签)、作者(@作者)</p>
@@ -319,9 +319,9 @@
     </div>
     <div class="copyright">
         <p class="footer-entry">
-    ©2016-2020 Yelog
+    ©2022 MaxwellWave
 </p>
-<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+<!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
 
     </div>
 </div>
@@ -372,6 +372,20 @@
 
         /*高亮代码块行号*/
         
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
 
         /*访问数量*/
         
@@ -396,6 +410,38 @@
 </script>
 
 <!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
 
 <!--自定义样式设置-->
 <style>
