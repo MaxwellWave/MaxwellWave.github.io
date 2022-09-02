@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>如何搭建自己的博客 | MaxwellWave</title>
-  <meta name="keywords" content=" blog ">
-  <meta name="description" content="如何搭建自己的博客 | MaxwellWave">
+  <title>单if语句、多if语句及case语句 | MaxwellWave</title>
+  <meta name="keywords" content=" design , verilog ">
+  <meta name="description" content="单if语句、多if语句及case语句 | MaxwellWave">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="条件分支语句说明0 前言笔者接触IC&amp;FPGA相关知识将近一年了，在写Verilog代码的时候始终无法体会到知乎上众多大佬所说的心中有电路的境界，近来在学习中国大学MOOC课程《芯动力——硬件加速设计课程》中关于条件分支语句部分。通过实验测试后，感觉能够稍微体会到写出来的代码会综合成何种电路，故写下此文用已记录。 Verilog的条件分支语句有三种： 单if语句、多if语句、case语句">
 <meta property="og:type" content="article">
@@ -302,9 +302,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-1-如何搭建自己的博客" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-3-单-多if及case语句" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">如何搭建自己的博客</h1>
+        <h1 class="article-title">单if语句、多if语句及case语句</h1>
     
     <div class="article-meta">
         
@@ -314,7 +314,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Other">Other</a>
+            <a  data-rel="IC">IC</a>
             
         </span>
         
@@ -322,19 +322,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">blog</a>
+            <a class="color2">design</a>
+            
+            <a class="color3">verilog</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-08-29 16:51:39'>2022-08-28 08:56</time>
+            Created At : <time class="date" title='Updated At: 2022-09-02 09:30:49'>2022-09-01 09:29</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:1.3k</span>
+        <span>Count:2.3k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -353,7 +355,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows%E4%B8%8B%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2"><span class="toc-text">Windows下如何搭建自己的博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91"><span class="toc-text">1 科学上网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B"><span class="toc-text">2 安装过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%9F%A5%E7%9C%8Bcnpm%E7%9A%84%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-text">2.1 查看cnpm的镜像源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-SSH%E5%85%8D%E5%AF%86%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2"><span class="toc-text">2.2 SSH免密远端部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3VScode-%E7%BC%96%E8%BE%91markdown%E6%96%87%E6%9C%AC"><span class="toc-text">3VScode 编辑markdown文本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E5%AE%9E%E6%97%B6%E9%A2%84%E8%A7%88"><span class="toc-text">3.1实时预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E5%9B%BE%E7%89%87%E9%83%A8%E7%BD%B2"><span class="toc-text">3.2图片部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5%E8%AF%B4%E6%98%8E"><span class="toc-text">条件分支语句说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E5%89%8D%E8%A8%80"><span class="toc-text">0 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8D%95if%E8%AF%AD%E5%8F%A5"><span class="toc-text">1 单if语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%8D%95if%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8A%E7%94%B5%E8%B7%AF"><span class="toc-text">1.1 单if语句的优先级及电路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-if-else%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%AF%B9%E7%94%B5%E8%B7%AF%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">1.2 if-else语句的优先级对电路的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-if-else%E8%AF%AD%E5%8F%A5%E5%AF%B9%E7%94%B5%E8%B7%AF%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-text">1.3 if-else语句对电路的优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A4%9Aif%E8%AF%AD%E5%8F%A5"><span class="toc-text">2 多if语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%A4%9Aif%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8A%E7%94%B5%E8%B7%AF"><span class="toc-text">2.1 多if语句的优先级及电路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%BD%93%E5%A4%9Aif%E8%AF%AD%E5%8F%A5%E5%9C%A8%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E4%B8%AD%E6%97%B6%E7%9A%84%E7%94%B5%E8%B7%AF"><span class="toc-text">2.2 当多if语句在时序电路中时的电路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%A4%9Aif%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">2.3 多if语句的应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-case%E8%AF%AD%E5%8F%A5"><span class="toc-text">3 case语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-case%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8A%E7%94%B5%E8%B7%AF"><span class="toc-text">3.1 case语句的优先级及电路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-case%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">3.2 case语句的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-casez%E4%B8%8Ecasex%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-text">3.3 casez与casex的用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-full-case%E5%92%8Cparallel-Case-%E7%BB%BC%E5%90%88%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="toc-text">3.4  full-case和parallel-Case 综合器指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -369,82 +371,181 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Windows下如何搭建自己的博客"><a href="#Windows下如何搭建自己的博客" class="headerlink" title="Windows下如何搭建自己的博客"></a>Windows下如何搭建自己的博客</h1><h2 id="1-科学上网"><a href="#1-科学上网" class="headerlink" title="1 科学上网"></a>1 科学上网</h2><p>笔者在跟着B站<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">程序羊</a>搭建博客的过程中遇到的最大的问题就是CMD里面无法访问GitHub，即便用了Edge浏览器的梯子可以在浏览器中访问GitHub但也无法在CMD使用hexo将博客部署在GitHub的仓库上，会出现无法访问到GitHub的错误提示。</p>
-<p><img src="/2022/08/28/1-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/vpn_error.png">  </p>
-<p>笔者也尝试过修改DNS添加GitHub的站点也未能解决该问题，最后是使用了 <strong>stream++</strong> 对GitHub加速后才成功，但是笔者发现 <strong>stream++</strong> 其实也是通过修改host(<strong>其路径为C:\Windows\System32\drivers\etc</strong>),下图为未修改前host的文件内容</p>
-<p><img src="/2022/08/28/1-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/host_before.png" alt="host_before">  </p>
-<p>下图为开启 <strong>stream++</strong> 之后host的文件内容</p>
-<p><img src="/2022/08/28/1-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/host_after.png" alt="host_after"></p>
-<p>注意如果是手动修改host后需要在CMD内通过以下代码刷新DNS</p>
-<pre><code class="cmd">    ipconfig /flushdns
+        <h1 id="条件分支语句说明"><a href="#条件分支语句说明" class="headerlink" title="条件分支语句说明"></a>条件分支语句说明</h1><h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0 前言"></a>0 前言</h2><p>笔者接触IC&amp;FPGA相关知识将近一年了，在写Verilog代码的时候始终无法体会到知乎上众多大佬所说的<strong>心中有电路</strong>的境界，近来在学习中国大学MOOC课程<a target="_blank" rel="noopener" href="https://www.icourse163.org/learn/SWJTU-1207492806#/learn/announce">《芯动力——硬件加速设计课程》</a>中关于条件分支语句部分。通过实验测试后，感觉能够稍微体会到写出来的代码会综合成何种电路，故写下此文用已记录。</p>
+<p>Verilog的条件分支语句有三种： <strong>单if语句、多if语句、case语句</strong></p>
+<h2 id="1-单if语句"><a href="#1-单if语句" class="headerlink" title="1 单if语句"></a>1 单if语句</h2><h3 id="1-1-单if语句的优先级及电路"><a href="#1-1-单if语句的优先级及电路" class="headerlink" title="1.1 单if语句的优先级及电路"></a>1.1 单if语句的优先级及电路</h3><p>单if语句通常会被逻辑综合成多个<strong>二选一的选择器</strong>组合而成，其具有隐含的优先级，优先级由上往下，<strong>只能在initial和always语句中使用</strong>。</p>
+<p>故对于if-else语句结构都是通过二选一的数据选择器搭建而来</p>
+<pre><code class="verilog">always@(a or b or c or d or sel0 or sel1 or sel2 or sel3)
+    begin
+        if(sel3)
+            z	=	d;
+        else if(sel2)
+            z	=	c;
+        else if(sel1)
+            z	=	b;
+        else if(sel0)
+            z	=	a;
+        else
+            z	=	0;
+    end
 </code></pre>
-<h2 id="2-安装过程"><a href="#2-安装过程" class="headerlink" title="2 安装过程"></a>2 安装过程</h2><p>如果能保证命令行访问到GitHub，建立博客的过程就十分简单，大家可以参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv12633102">码游菌</a>和<a target="_blank" rel="noopener" href="https://shuyepl.github.io/2021/10/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">薯叶</a>的两篇文章介绍，笔者在此就不再赘述，仅介绍一下笔者在安装过程中所使用到的指令以及遇到的一些问题而两篇文章中没有介绍到的</p>
-<pre><code class="cmd">#以下命令为windows下cmd, linux系统下需先获取sudo权限
-    node -v                                 #查看nodejs版本
-    npm  -v                                 #查看npm版本
-    git  -v                                 #查看git版本
-    git config --global user.email &quot;xxx&quot;    #设置GitHub邮箱地址
-    git config --global user.name  &quot;xxx&quot;    #设置GitHub用户名
-    git config user.email                   #查看git邮箱
-    git config user.name                    #查看git用户名
+<p>以上述代码为例，其描述的电路为</p>
+<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/%E5%8D%95if%E8%AF%AD%E5%8F%A5.png"><br>其中d具由最高优先级依次递减，a的优先级最低。</p>
+<p>vivado综合出来的电路如下图所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/%E5%8D%95if_vivado.png"><br>综合出来的电路与我们心中的电路一致。</p>
+<h3 id="1-2-if-else语句的优先级对电路的影响"><a href="#1-2-if-else语句的优先级对电路的影响" class="headerlink" title="1.2 if-else语句的优先级对电路的影响"></a>1.2 if-else语句的优先级对电路的影响</h3><p>以一个简单的计数器电路为例</p>
+<pre><code class="verilog">//正确示例
+always@(posedge clk or negedge rst_n)
+    begin
+        if(!rst_n)
+            cnt &lt;=  4&#39;d0;
+        else if(cnt == 4&#39;d20 &amp;&amp; flag == 1&#39;b1)
+            cnt &lt;=  4&#39;d0;
+        else if(flag == 1&#39;b1)
+            cnt &lt;=  cnt + 1;
+        else
+            cnt &lt;=  cnt;
+    end
 
-
-    npm install -g cnpm --registry==https://registry.npm.taobao.#安装cnpm管理器并替换源
-    npm config get registry                                     #查看是否替换源
-    cnpm -v                                                     #查看cnpm版本
-    cnpm install -g hexo-cli                                    #安装hexo架构
-    hexo -v                                                     #查看hexo版本
-
-    mkdir blog              #新建博客目录
-    cd blog                 #进入博客文件夹
-    hexo init               #生成初始化博客
-    hexo new &quot;第一篇博客&quot;    #新建第一篇博客
-    hexo clean              #清理清除缓存文件 (db.json) 和已生成的静态文件 
-    hexo generate           #生成博客
-
-    cnpm install hexo-deployer-git --save #在blog目录下安装git部署插件
-
-#----------------------注意：对_config.yml进行配置后才可进行远端部署-----------------------#
-
-    hexo deploy             #远端部署
-
-    git clone 主题链接       #克隆主题
-    cnpm install hexo-renderer-marked --save #hexo远端部署图片插件
+//错误示例
+always@(posedge clk or negedge rst_n)
+    begin
+        if(!rst_n)
+            cnt &lt;=  4&#39;d0;
+        else if(flag == 1&#39;b1)
+            cnt &lt;=  cnt + 1;
+        else if(cnt == 4&#39;d20 &amp;&amp; flag == 1&#39;b1)
+            cnt &lt;=  4&#39;d0;
+        else
+            cnt &lt;=  cnt;
+    end    
 </code></pre>
-<h3 id="2-1-查看cnpm的镜像源"><a href="#2-1-查看cnpm的镜像源" class="headerlink" title="2.1 查看cnpm的镜像源"></a>2.1 查看cnpm的镜像源</h3><p>在使用命令</p>
-<pre><code class="cmd">    npm install -g cnpm --registry==https://registry.npm.taobao.org
+<p>上例代码中，正确示例<code>cnt</code>在<code>flag</code>为高时开始计数，当计数到20时会归零后重新计数；而错误示例由于<code>cnt+1</code>的优先级高于清零的优先级，所以错误示例中<code>cnt</code>会一直加1且不会清零</p>
+<h3 id="1-3-if-else语句对电路的优化"><a href="#1-3-if-else语句对电路的优化" class="headerlink" title="1.3 if-else语句对电路的优化"></a>1.3 if-else语句对电路的优化</h3><p>在设计中需要需求进行分析，采用<code>if-else</code>语句映射的硬件结构，合理设计。</p>
+<p>此时需要你设计一个电路，当<code>flag=1</code>时<code>value=A+B</code>,否则<code>value=C+D</code>。我们应该如何进行设计？</p>
+<p>笔者的第一反应是使用一个二选一的选择器进行实现</p>
+<pre><code class="verilog">if(flag)
+    value   =   A + B;
+else
+    value   =   C + D;
 </code></pre>
-<p>安装cnpm并切换淘宝源的时候，可以使用以下命令查看是否切换成功</p>
-<pre><code class="cmd">    npm config get registry # 查看现在的源
+<p>有了之前的基础，我们可以很容易的画出此段代码描绘的电路<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/example1.png"><br>但是由于加法器会比选择器复杂的多，所需要的面积也更大，故可使用如下代码重构<code>if-else</code>映射的硬件结构</p>
+<pre><code class="verilog">if(flag)
+    begin
+        op1 = A;
+        op2 = B;
+    end
+else
+    begin
+        op1 = C;
+        op2 = D;
+    end
+
+assign  value = op1 + op2; 
 </code></pre>
-<h3 id="2-2-SSH免密远端部署"><a href="#2-2-SSH免密远端部署" class="headerlink" title="2.2 SSH免密远端部署"></a>2.2 SSH免密远端部署</h3><p>使用<a target="_blank" rel="noopener" href="https://shuyepl.github.io/2021/10/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">薯叶</a>远端部署的方法，笔者在输入登入密码的时候一直显示错误，故在远端部署之前可以现根据<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv12633102">码游菌</a>的方法配置SSH免密登入,需要注意的是Windows下无法下述命令测试SSH配置成功</p>
-<pre><code class="cmd">    $ ssh -T git@github.com
+<p>此段代码描绘的电路如下图所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/example2.png"><br>该方法减少了一个加法器，使得电路的面积得以减少，但是控制通道信号flag的延迟却从一个加法器变成了一个加法器和数据选择器之后，如果<code>flag</code>信号到来的比较晚，则此电路的性能就会比前一种电路的性能更差。<br>故需要根据设计的目标小心设计：选择<strong>先“加”后“选”<strong>还是</strong>先“选”后“加”</strong>。</p>
+<h2 id="2-多if语句"><a href="#2-多if语句" class="headerlink" title="2 多if语句"></a>2 多if语句</h2><h3 id="2-1-多if语句的优先级及电路"><a href="#2-1-多if语句的优先级及电路" class="headerlink" title="2.1 多if语句的优先级及电路"></a>2.1 多if语句的优先级及电路</h3><p>多if语句与单if语句类似，具有优先级，且消耗二选一组合逻辑器件。与单if语句不同的是其最高优先级给到最迟到达的信号。以下述代码为例</p>
+<pre><code class="verilog">always@(a or b or c or d or sel0 or sel1 or sel2 or sel3)
+    begin
+        z = 0;  //当所有条件不符时z=0；不加则会生成latch
+        if(sel0)
+            z	=	a;
+        if(sel1)
+            z	=	b;
+        if(sel2)
+            z	=	c;
+        if(sel3)
+            z	=	d;
+    end	
 </code></pre>
-<p>直接使用 <code>hexo d</code> 命令进行远端部署，如果无需输入密码就部署成功就说明SSH免密配置成功</p>
-<p><strong>注意：</strong> 远端部署前需要先对git设置访问的邮箱和用户名</p>
-<h2 id="3VScode-编辑markdown文本"><a href="#3VScode-编辑markdown文本" class="headerlink" title="3VScode 编辑markdown文本"></a>3VScode 编辑markdown文本</h2><p>相较于使用Typora编辑markdown文本，笔者更喜欢能看到代码且同时能预览结果的VScode,当然要想VScode实现相应功能则需要进行一些配置</p>
-<h3 id="3-1实时预览"><a href="#3-1实时预览" class="headerlink" title="3.1实时预览"></a>3.1实时预览</h3><p>预览功能只需要下载插件<code>Markdown Preview Enhanced</code>即可，无需多余的配置，之后便可以通过快捷键和右上角的图标进行实时预览，效果如下</p>
-<p><img src="/2022/08/28/1-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C.png">  </p>
-<h3 id="3-2图片部署"><a href="#3-2图片部署" class="headerlink" title="3.2图片部署"></a>3.2图片部署</h3><p>在md文件中插入图片的语法为<code>![]()</code>其中方括号是图片描述，圆括号是图片路径。然而在远端部署的时候会出现图片无法加载的情况，故需要对hexo以及vscode都进行一些相应的配置。</p>
-<p><strong>hexo</strong> </p>
-<p>首先需要使用命令<code>cnpm install hexo-renderer-marked --save</code>下载 <strong>hexo-renderer-marked</strong> 插件，然后对hexo的_config.yaml配置文件进行如下配置</p>
-<pre><code class="yaml">    post_asset_folder: true #使得source文件夹内生成一个与md文件同名的文件夹用于存放该文件的图片
-    marked:
-        prependRoot: true
-        postAsset: true
+<p><code>alwsys</code>语句中描述组合逻辑电路使用阻塞赋值，其内部语句顺序执行，故其最高优先级是<code>sel3</code>决定的<code>d</code>，最低优先级是<code>sel0</code>决定的<code>a</code>。故而可以画出此段代码描述的电路，因调整了优先级顺序，故于上文中单if语句的电路一致。<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/1.png"></p>
+<p>与vivado综合电路一致</p>
+<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/2.png"> </p>
+<h3 id="2-2-当多if语句在时序电路中时的电路"><a href="#2-2-当多if语句在时序电路中时的电路" class="headerlink" title="2.2 当多if语句在时序电路中时的电路"></a>2.2 当多if语句在时序电路中时的电路</h3><p>我们将上述代码修改为如下代码描述的时序逻辑电路</p>
+<pre><code class="verilog">always@(posedge clk)
+    begin
+        z &lt;= 0;
+        if(sel0)
+            z	&lt;=	a;
+        if(sel1)
+            z	&lt;=	b;
+        if(sel2)
+            z	&lt;=	c;
+        if(sel3)
+            z	&lt;=	d;
+    end	
 </code></pre>
-<p>之后只需要将图片放进与博客名同名的文件夹中再使用<code>![](img.jpg)</code>即可将图片部署到远端上</p>
-<p> <strong>VScode</strong></p>
-<p>VScode本身不具备粘贴图像的功能，故需要先下载<code>Markdown Paste</code>插件使得其具有粘贴图像的功能,然而该插件默认将图片保存在当前文件夹目录下，故我们需要将其默认路径改为当前博客名的文件夹。</p>
-<p>目前此插件设定的路径有如下预定义变量</p>
-<pre><code>$ &#123;workspaceRoot&#125;-在VS Code中打开的文件夹的路径
-$ &#123;fileBasename&#125;-当前打开的文件的基本名称
-$ &#123;fileBasenameNoExtension&#125;-当前打开的文件的基本名称，没有文件扩展名
-$ &#123;fileExtname&#125;-当前打开的文件的扩展名
-$ &#123;fileDirname&#125;-当前打开的文件的目录名
+<p>首先我们要知道在时序逻辑电路中使用非阻塞赋值，并且在always语句块结束时将右端表达式的值赋值给左端。我们可以推断出上述代码描述时序电路的优先级与前面的组合逻辑电路一致，不同的地方在于输出端口加了一个触发器，故而我们可以画出其电路<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/3.png">  </p>
+<p>与vivado综合电路一致</p>
+<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/4.png">   </p>
+<h3 id="2-3-多if语句的应用场景"><a href="#2-3-多if语句的应用场景" class="headerlink" title="2.3 多if语句的应用场景"></a>2.3 多if语句的应用场景</h3><p>若某些设计中，有些信号要求先到达(如关键便能信号、选择信号等)，而有些信号需要后到达(如慢速信号、有效时间较长的信号等)，此时则需要使用<code>if..if...</code>结构。然而其实此类场合也可以选择使用<code>if-else</code>,故在设计过程中尽可能<strong>避免使用<code>if..if...</code>结构</strong>。</p>
+<h2 id="3-case语句"><a href="#3-case语句" class="headerlink" title="3 case语句"></a>3 case语句</h2><h3 id="3-1-case语句的优先级及电路"><a href="#3-1-case语句的优先级及电路" class="headerlink" title="3.1 case语句的优先级及电路"></a>3.1 case语句的优先级及电路</h3><p><strong><code>case</code>语句当条件互斥时是没有优先级，但是条件选项不要求互斥。虽然这些条件选项是并发比较的，但执行效果是谁在前且条件为真谁被执行</strong></p>
+<p><code>case</code>语句描述的电路是一个多路选择器。</p>
+<pre><code class="verilog">always@(a or b or c or d or sel0 or sel1)
+    begin
+        case(&#123;sel0,sel1&#125;)
+            2&#39;b00: z = d;
+            2&#39;b01: z = c;
+            2&#39;b10: z = b;
+            2&#39;b11: z = a;
+            default: z =0;
+        endcase
+    end
 </code></pre>
-<p>故需要将其路径变量修改为<code>fileBasenameNoExtension</code><br><img src="/2022/08/28/1-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/paste.png">  </p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv12633102">https://www.bilibili.com/read/cv12633102</a><br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1818918">https://cloud.tencent.com/developer/article/1818918</a><br><a target="_blank" rel="noopener" href="https://shuyepl.github.io/2021/10/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">https://shuyepl.github.io/2021/10/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</a></p>
+<p>以上述代码为例其描述的电路是一个<strong>条件选项互斥</strong>的四选一数据选择器，电路如下所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/5.png"> </p>
+<p>与vivado综合电路一致</p>
+<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/6.png">   </p>
+<p>当将条件选项修改成非互斥时，我们可以看看综合出来的电路是怎样的</p>
+<pre><code class="verilog">always@(a or b or c or d or sel0 or sel1)
+    begin
+        case(&#123;sel0,sel1&#125;)
+            2&#39;b00: z = d;
+            2&#39;b01: z = c;
+            2&#39;b01: z = b;
+            2&#39;b11: z = a;
+            default: z =0;
+        endcase
+    end
+</code></pre>
+<p>如上述代码，笔者将第三个条件选项修改成与第二个条件选项一致，通过vivado综合出来的电路如下图所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/7.png"><br>可以看到此时<code>b</code>是永远无法赋值到<code>z</code>的，同时由于<code>&#123;sel0,sel1&#125;</code>可表示4种情况，而<code>case</code>中的条件选项未完备，故而会出现一个<code>default</code>接口，将<code>z</code>置零。</p>
+<h3 id="3-2-case语句的应用场景"><a href="#3-2-case语句的应用场景" class="headerlink" title="3.2 case语句的应用场景"></a>3.2 case语句的应用场景</h3><p>相对于<code>if-else</code>语句只有两个分支而言，<code>case</code>语句是一种可实现多路分支选择控制的语句，比<code>if-else</code>语句更为直观和方便。一般的，<code>case</code>语句多用于多见译码电路的设计，如描述<strong>译码器、数据选择器、状态机及微处理器的指令译码</strong>等。</p>
+<h3 id="3-3-casez与casex的用法"><a href="#3-3-casez与casex的用法" class="headerlink" title="3.3 casez与casex的用法"></a>3.3 casez与casex的用法</h3><p><strong>用前提醒： casez与casex都不可综合，多用于仿真。</strong></p>
+<p>casex、 casez 语句是 case 语句的变形，用来表示条件选项中的无关项。</p>
+<p>casex 用 “x” 来表示无关值，casez 用问号 “?” 来表示无关值。</p>
+<p>两者的实现的功能是完全一致的，语法与 case 语句也完全一致。</p>
+<h3 id="3-4-full-case和parallel-Case-综合器指令"><a href="#3-4-full-case和parallel-Case-综合器指令" class="headerlink" title="3.4  full-case和parallel-Case 综合器指令"></a>3.4  full-case和parallel-Case 综合器指令</h3><p>在理论上使用<code>case</code>语句对于不符合条件选项的我们可以使用<code>default</code>，但是实际应用中可能存在没有<code>default</code>的情况存在。</p>
+<p>以交通控制红绿灯为例，只有红、绿、黄三种情况，不会出现第四种，故使用2bit就可表示所有情况，但会多出一种情况，综合的时候就会产生<code>latch</code>。故可使用<code>full-case</code>告诉综合器，当前<code>case</code>结构所列条件已完备，从而消除<code>latch</code>。</p>
+<blockquote>
+<p>PS:其实也可以使用<code>default</code>,既然实际上不可能出现满足<code>default</code>条件的情况，那么使用了也不会导致系统输出失常，也保证不会出现<code>latch</code></p>
+</blockquote>
+<pre><code class="verilog">//会出现latch的情况
+always@(*)
+    case(sel) 
+        2&#39;b00:  y = a;  //红
+        2&#39;b01:  y = b;  //绿
+        2&#39;b10:  y = c;  //蓝
+    endcase
+endmodule
+
+//不出现latch的情况
+always@(*)
+    case(sel) //synopsys full_case
+        2&#39;b00:  y = a;
+        2&#39;b01:  y = b;
+        2&#39;b10:  y = c;
+    endcase
+endmodule
+
+//不出现latch的情况
+always@(*)
+    case(sel) 
+        2&#39;b00:  y = a;  //红
+        2&#39;b01:  y = b;  //绿
+        2&#39;b10:  y = c;  //蓝
+        default: y = 0; //实际中不会出现此条件
+    endcase
+endmodule
+</code></pre>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1]<a target="_blank" rel="noopener" href="https://www.icourse163.org/learn/SWJTU-1207492806#/learn/announce">《芯动力——硬件加速设计课程》</a><br>[2] <a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/verilog-case.html">Verilog 多路分支语句 | 菜鸟教程</a><br>[3] 蔡觉平, 何小川, 李逍楠. Verilog HDL数字集成电路设计原理与应用[M]. 西安电子科技大学出版社, 2011.</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以通过知乎私信，也可以邮件至 maxwellwave@foxmail.com </span>
