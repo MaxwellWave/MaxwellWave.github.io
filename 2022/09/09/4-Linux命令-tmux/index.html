@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Linux命令-tmux | MaxwellWave</title>
+  <meta name="keywords" content=" -command ">
+  <meta name="description" content="Linux命令-tmux | MaxwellWave">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="tmux使用教程1 tmux的定义1.1 会话与进程命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称”窗口”），在里面输入命令。用户与计算机的这种临时的交互，称为一次”会话”（session）。 会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。 一个典型的例子就是，SSH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令-tmux">
+<meta property="og:url" content="http://example.com/2022/09/09/4-Linux%E5%91%BD%E4%BB%A4-tmux/index.html">
+<meta property="og:site_name" content="MaxwellWave">
+<meta property="og:description" content="tmux使用教程1 tmux的定义1.1 会话与进程命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称”窗口”），在里面输入命令。用户与计算机的这种临时的交互，称为一次”会话”（session）。 会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。 一个典型的例子就是，SSH">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/4-Linux%E5%91%BD%E4%BB%A4-tmux/tmux%E7%95%8C%E9%9D%A2.png">
+<meta property="og:image" content="http://example.com/4-Linux%E5%91%BD%E4%BB%A4-tmux/20220909205022.png">
+<meta property="og:image" content="http://example.com/4-Linux%E5%91%BD%E4%BB%A4-tmux/%E4%BC%9A%E8%AF%9D%E7%AA%97%E5%8F%A3.png">
+<meta property="og:image" content="http://example.com/4-Linux%E5%91%BD%E4%BB%A4-tmux/tmux%E7%AA%97%E5%8F%A32.png">
+<meta property="article:published_time" content="2022-09-09T01:59:52.000Z">
+<meta property="article:modified_time" content="2022-09-10T02:39:05.368Z">
+<meta property="article:author" content="MaxwellWave">
+<meta property="article:tag" content="-command">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/4-Linux%E5%91%BD%E4%BB%A4-tmux/tmux%E7%95%8C%E9%9D%A2.png">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>MaxwellWave</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/MaxwellWave"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/man-tian-bai-yun"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:maxwellwave@foxmail.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(4)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="IC">
+                        
+                        IC
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="FPGA">
+                        
+                        FPGA
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Other">
+                        
+                        Other
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="-Linux">
+                        
+                        -Linux
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="4">
+<input type="hidden" id="yelog_site_word_count" value="6.9k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>-command</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>blog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>design</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>verilog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>xilinx</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 -Linux "
+           href="/2022/09/09/4-Linux%E5%91%BD%E4%BB%A4-tmux/"
+           data-tag="-command"
+           data-author="" >
+            <span class="post-title" title="Linux命令-tmux">Linux命令-tmux</span>
+            <span class="post-date" title="2022-09-09 09:59:52">2022/09/09</span>
+        </a>
+        
+        
+        <a  class="全部文章 IC "
+           href="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/"
+           data-tag="design,verilog"
+           data-author="" >
+            <span class="post-title" title="单if语句、多if语句及case语句">单if语句、多if语句及case语句</span>
+            <span class="post-date" title="2022-09-01 09:29:15">2022/09/01</span>
+        </a>
+        
+        
+        <a  class="全部文章 FPGA "
+           href="/2022/08/29/2-Xilinx%E5%86%85%E9%83%A8%E8%A7%A6%E5%8F%91%E5%99%A8%E8%AF%B4%E6%98%8E/"
+           data-tag="design,xilinx"
+           data-author="" >
+            <span class="post-title" title="Xilinx内部触发器说明">Xilinx内部触发器说明</span>
+            <span class="post-date" title="2022-08-29 21:11:02">2022/08/29</span>
+        </a>
+        
+        
+        <a  class="全部文章 Other "
+           href="/2022/08/28/1-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="如何搭建自己的博客">如何搭建自己的博客</span>
+            <span class="post-date" title="2022-08-28 08:56:26">2022/08/28</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-4-Linux命令-tmux" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Linux命令-tmux</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="-Linux">-Linux</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">-command</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2022-09-10 10:39:05'>2022-09-09 09:59</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:2.1k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tmux%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-text">tmux使用教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-tmux%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">1 tmux的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%BC%9A%E8%AF%9D%E4%B8%8E%E8%BF%9B%E7%A8%8B"><span class="toc-text">1.1 会话与进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-tmux%E4%BD%9C%E7%94%A8"><span class="toc-text">1.2 tmux作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-text">2 基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85"><span class="toc-text">2.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%90%AF%E5%8A%A8%E5%92%8C%E9%80%80%E5%87%BA"><span class="toc-text">2.2 启动和退出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%89%8D%E7%BC%80%E9%94%AE"><span class="toc-text">2.3 前缀键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%9C%80%E7%AE%80%E5%AE%9E%E4%BE%8B"><span class="toc-text">2.4 最简实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E4%BC%9A%E8%AF%9D%E3%80%81%E7%AA%97%E5%8F%A3%E5%92%8C%E7%AA%97%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">2.5 会话、窗口和窗格的定义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86"><span class="toc-text">3 会话管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%96%B0%E5%BB%BA%E4%BC%9A%E8%AF%9D"><span class="toc-text">3.1 新建会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%88%86%E7%A6%BB%E4%BC%9A%E8%AF%9D"><span class="toc-text">3.2 分离会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%8E%A5%E5%85%A5%E4%BC%9A%E8%AF%9D"><span class="toc-text">3.3 接入会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%9D%80%E6%AD%BB%E4%BC%9A%E8%AF%9D"><span class="toc-text">3.4 杀死会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E5%88%87%E6%8D%A2%E4%BC%9A%E8%AF%9D"><span class="toc-text">3.5 切换会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E9%87%8D%E5%91%BD%E5%90%8D%E4%BC%9A%E8%AF%9D"><span class="toc-text">3.6 重命名会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E4%BC%9A%E8%AF%9D%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">3.7 会话快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%AA%97%E6%A0%BC%E6%93%8D%E4%BD%9C"><span class="toc-text">4 窗格操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%88%92%E5%88%86%E7%AA%97%E6%A0%BC"><span class="toc-text">4.1 划分窗格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87"><span class="toc-text">4.2 移动光标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E4%BA%A4%E6%8D%A2%E7%AA%97%E6%A0%BC%E4%BD%8D%E7%BD%AE"><span class="toc-text">4.3 交换窗格位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E7%AA%97%E6%A0%BC%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">4.4 窗格快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86"><span class="toc-text">5 窗口管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%96%B0%E5%BB%BA%E7%AA%97%E5%8F%A3"><span class="toc-text">5.1 新建窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%88%87%E6%8D%A2%E7%AA%97%E5%8F%A3"><span class="toc-text">5.2 切换窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E9%87%8D%E5%91%BD%E5%90%8D%E7%AA%97%E5%8F%A3"><span class="toc-text">5.3 重命名窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E9%80%80%E5%87%BA%E7%AA%97%E5%8F%A3"><span class="toc-text">5.4 退出窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E7%AA%97%E5%8F%A3%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">5.5 窗口快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="toc-text">6 其他命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">7 参考资料</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="tmux使用教程"><a href="#tmux使用教程" class="headerlink" title="tmux使用教程"></a>tmux使用教程</h1><h2 id="1-tmux的定义"><a href="#1-tmux的定义" class="headerlink" title="1 tmux的定义"></a>1 tmux的定义</h2><h3 id="1-1-会话与进程"><a href="#1-1-会话与进程" class="headerlink" title="1.1 会话与进程"></a>1.1 会话与进程</h3><p>命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称”窗口”），在里面输入命令。<strong>用户与计算机的这种临时的交互，称为一次”会话”（session）。</strong></p>
+<p>会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。</p>
+<p>一个典型的例子就是，SSH 登录远程计算机，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一次执行的命令的。因为上一次 SSH 会话已经终止了，里面的进程也随之消失了。</p>
+<p>为了解决这个问题，会话与窗口可以”解绑”：窗口关闭时，会话并不终止，而是继续运行，等到以后需要的时候，再让会话”绑定”其他窗口。</p>
+<h3 id="1-2-tmux作用"><a href="#1-2-tmux作用" class="headerlink" title="1.2 tmux作用"></a>1.2 tmux作用</h3><p>tmux 就是会话与窗口的”解绑”工具，将它们彻底分离。类似的终端复用器还有 GNU Screen。tmux 与它功能相似，但是更易用，也更强大。</p>
+<blockquote>
+<p>（1）它允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。</p>
+<p>（2）它可以让新窗口”接入”已经存在的会话。</p>
+<p>（3）它允许每个会话有多个连接窗口，因此可以多人实时共享会话。</p>
+<p>（4）它还支持窗口任意的垂直和水平拆分。</p>
+</blockquote>
+<h2 id="2-基本用法"><a href="#2-基本用法" class="headerlink" title="2 基本用法"></a>2 基本用法</h2><h3 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h3><p>ubuntu环境下，tmux需要输入以下命令进行安装</p>
+<pre><code class="shell">$ sudo apt-get install tmux       #下载tmux
+$ tmux -V                         #查看安装版本
+</code></pre>
+<h3 id="2-2-启动和退出"><a href="#2-2-启动和退出" class="headerlink" title="2.2 启动和退出"></a>2.2 启动和退出</h3><p>安装完成后，键入<code>tmux</code>命令，就进入了tmux窗口</p>
+<pre><code class="shell">$ tmux
+</code></pre>
+<p>上面命令会启动 Tmux 窗口，底部有一个状态栏。状态栏的左侧是窗口信息（编号和名称），右侧是系统信息。</p>
+<p><img src="/4-Linux%E5%91%BD%E4%BB%A4-tmux/tmux%E7%95%8C%E9%9D%A2.png">  </p>
+<p>按下<code>Ctrl+d</code>或者显式键入<code>exit</code>命令，就可以退出<code>tmux</code>窗口。</p>
+<pre><code class="shell">$ exit
+</code></pre>
+<h3 id="2-3-前缀键"><a href="#2-3-前缀键" class="headerlink" title="2.3 前缀键"></a>2.3 前缀键</h3><p><code>tmux</code>窗口有大量的快捷键，<strong>注意所有快捷键都要通过前缀键唤起。默认的前缀键是<code>Ctrl+b</code>，即先按下<code>Ctrl+b</code>，快捷键才会生效。</strong> </p>
+<p>举例来说，帮助命令的快捷键是 <code>Ctrl+b ?</code>。它的用法是，在 <code>tmux</code> 窗口中，先按下<code>Ctrl+b</code>，再按下<code>?</code>，就会显示帮助信息。然后，按下 <code>ESC</code>键或<code>q</code>键，就可以退出帮助。</p>
+<h3 id="2-4-最简实例"><a href="#2-4-最简实例" class="headerlink" title="2.4 最简实例"></a>2.4 最简实例</h3><p>1.新建会话 <code>tmux new -s my_session</code><br>2.在<code>tmux</code>窗口运行所需要的程序<br>3.使用<code>tmux detach</code>分离会话窗口<br>4.下次使用时，使用命令<code>tmux attach-session -t my_session</code>重新连接到会话窗口<br>5.使用命令<code>exit</code>结束会话</p>
+<h3 id="2-5-会话、窗口和窗格的定义"><a href="#2-5-会话、窗口和窗格的定义" class="headerlink" title="2.5 会话、窗口和窗格的定义"></a>2.5 会话、窗口和窗格的定义</h3><p><img src="/4-Linux%E5%91%BD%E4%BB%A4-tmux/20220909205022.png"><br>如上图所示，一个会话可以根据需求划分多个窗口（window），每个窗口又可以划分成多个窗格(pane)<br><img src="/4-Linux%E5%91%BD%E4%BB%A4-tmux/%E4%BC%9A%E8%AF%9D%E7%AA%97%E5%8F%A3.png"><br>实际如上图所示，其中test1表示会话，bash表示窗口，中间横线划分两个窗格</p>
+<h2 id="3-会话管理"><a href="#3-会话管理" class="headerlink" title="3 会话管理"></a>3 会话管理</h2><h3 id="3-1-新建会话"><a href="#3-1-新建会话" class="headerlink" title="3.1 新建会话"></a>3.1 新建会话</h3><p>第一个启动的 <code>tmux</code> 窗口，编号是0，第二个窗口的编号是1，以此类推。这些窗口对应的会话，就是 0 号会话、1 号会话。</p>
+<p>使用<code>tmux</code>命令启动窗口会默认使用编号区分会话，不太直观，更好的方法是为会话起名。</p>
+<pre><code class="shell">$ tmux new -s &lt;session-name&gt;    #新建一个指定名称的会话
+</code></pre>
+<p><img src="/4-Linux%E5%91%BD%E4%BB%A4-tmux/tmux%E7%AA%97%E5%8F%A32.png"></p>
+<p>上图中中括号中的<code>test1</code>表示当前会话名称，<code>0</code>表示当前会话编号，<code>bash</code>表示当前会话的窗口</p>
+<p><strong>注意：使用上述命令新建窗口，务必在终端，不要在<code>tmux</code>窗口嵌套，否则会出现如下报错</strong></p>
+<pre><code class="shell">sessions should be nested with care, unset $TMUX to force
+</code></pre>
+<h3 id="3-2-分离会话"><a href="#3-2-分离会话" class="headerlink" title="3.2 分离会话"></a>3.2 分离会话</h3><p>在 <code>tmux</code> 窗口中，按下<code>Ctrl+b d</code>或者输入<code>tmux detach</code>命令，就会将当前会话与窗口分离</p>
+<pre><code class="shell">$ tmux detach
+</code></pre>
+<p>上面命令执行后，就会退出当前 <code>tmux</code> 窗口，重新进入终端窗口，但是会话和里面的进程仍然在后台运行。</p>
+<p><code>tmux ls</code> 命令可以查看当前所有的 <code>tmux</code> 会话</p>
+<pre><code class="shell">$ tmux ls
+#or
+$ tmux list-session
+</code></pre>
+<h3 id="3-3-接入会话"><a href="#3-3-接入会话" class="headerlink" title="3.3 接入会话"></a>3.3 接入会话</h3><p>当分离会话进入终端窗口后，如果想要回到会话窗口可以使用<code>tmux attach</code>命令用于重新接入某个已存在的会话</p>
+<pre><code class="shell"># 使用会话编号
+$ tmux attach -t 0
+
+# 使用会话名称
+$ tmux attach -t &lt;session-name&gt;
+</code></pre>
+<h3 id="3-4-杀死会话"><a href="#3-4-杀死会话" class="headerlink" title="3.4 杀死会话"></a>3.4 杀死会话</h3><p>在<code>tmux</code>窗口中如果没有使用<code>exit</code>命令结束会话窗口，而是分离会话回到终端时，想要关闭一个会话窗口可以使用<code>tmux kill-session</code>命令用于杀死某个会话。</p>
+<pre><code class="shell"># 使用会话编号
+$ tmux kill-session -t 0
+
+# 使用会话名称
+$ tmux kill-session -t &lt;session-name&gt;
+</code></pre>
+<h3 id="3-5-切换会话"><a href="#3-5-切换会话" class="headerlink" title="3.5 切换会话"></a>3.5 切换会话</h3><p><code>tmux switch</code> 命令用于切换会话。</p>
+<pre><code class="shell"># 使用会话编号
+$ tmux switch -t 0
+
+# 使用会话名称
+$ tmux switch -t &lt;session-name&gt;
+</code></pre>
+<h3 id="3-6-重命名会话"><a href="#3-6-重命名会话" class="headerlink" title="3.6 重命名会话"></a>3.6 重命名会话</h3><p><code>tmux rename-session</code> 命令用于重命名会话</p>
+<pre><code class="shell">$ tmux rename-session -t 0 &lt;new-name&gt;
+</code></pre>
+<h3 id="3-7-会话快捷键"><a href="#3-7-会话快捷键" class="headerlink" title="3.7 会话快捷键"></a>3.7 会话快捷键</h3><ul>
+<li><code>Ctrl+b d</code>：分离当前会话</li>
+<li><code>Ctrl+b s</code>：列出所有会话</li>
+<li><code>Ctrl+b $</code>：重命名当前会话</li>
+</ul>
+<h2 id="4-窗格操作"><a href="#4-窗格操作" class="headerlink" title="4 窗格操作"></a>4 窗格操作</h2><p><code>tmux</code> 可以将窗口分成多个窗格（pane），每个窗格运行不同的命令。以下命令都是在 <code>tmux</code> 窗口中执行。</p>
+<h3 id="4-1-划分窗格"><a href="#4-1-划分窗格" class="headerlink" title="4.1 划分窗格"></a>4.1 划分窗格</h3><p><code>tmux split-window</code>命令用来划分窗格</p>
+<pre><code class="shell"># 划分上下两个窗格
+$ tmux split-window
+
+# 划分左右两个窗格
+$ tmux split-window -h
+</code></pre>
+<h3 id="4-2-移动光标"><a href="#4-2-移动光标" class="headerlink" title="4.2 移动光标"></a>4.2 移动光标</h3><p><code>tmux select-pane</code>命令用来移动光标位置</p>
+<pre><code class="shell"># 光标切换到上方窗格
+$ tmux select-pane -U
+
+# 光标切换到下方窗格
+$ tmux select-pane -D
+
+# 光标切换到左边窗格
+$ tmux select-pane -L
+
+# 光标切换到右边窗格
+$ tmux select-pane -R
+</code></pre>
+<h3 id="4-3-交换窗格位置"><a href="#4-3-交换窗格位置" class="headerlink" title="4.3 交换窗格位置"></a>4.3 交换窗格位置</h3><p><code>tmux swap-pane</code>命令用来交换窗格位置</p>
+<pre><code class="shell"># 当前窗格上移
+$ tmux swap-pane -U
+
+# 当前窗格下移
+$ tmux swap-pane -D
+</code></pre>
+<h3 id="4-4-窗格快捷键"><a href="#4-4-窗格快捷键" class="headerlink" title="4.4 窗格快捷键"></a>4.4 窗格快捷键</h3><p>输入快捷键之前必须先输入前缀键<code>Ctrl+b</code>,再输入以下快捷键</p>
+<pre><code> %              ：划分左右两个窗格。
+ &quot;              ：划分上下两个窗格。
+ &lt;arrow key&gt;    ：光标切换到其他窗格。&lt;arrow key&gt;是指向要切换到的窗格的方向键，比如切换到下方窗格，就按方向键↓。
+ ;              ：光标切换到上一个窗格。
+ o              ：光标切换到下一个窗格。
+ &#123;              ：当前窗格与上一个窗格交换位置。
+ &#125;              ：当前窗格与下一个窗格交换位置。
+ Ctrl+o         ：所有窗格向前移动一个位置，第一个窗格变成最后一个窗格。
+ Alt+o          ：所有窗格向后移动一个位置，最后一个窗格变成第一个窗格。
+ x              ：关闭当前窗格。
+ !              ：将当前窗格拆分为一个独立窗口。
+ z              ：当前窗格全屏显示，再使用一次会变回原来大小。
+ q              ：显示窗格编号。
+ Ctrl+&lt;arrow key&gt;：按箭头方向调整窗格大小。
+</code></pre>
+<h2 id="5-窗口管理"><a href="#5-窗口管理" class="headerlink" title="5 窗口管理"></a>5 窗口管理</h2><h3 id="5-1-新建窗口"><a href="#5-1-新建窗口" class="headerlink" title="5.1 新建窗口"></a>5.1 新建窗口</h3><p><code>tmux new-window</code>命令用来创建新窗口</p>
+<pre><code class="shell">$ tmux new-window
+
+# 新建一个指定名称的窗口
+$ tmux new-window -n &lt;window-name&gt;
+</code></pre>
+<h3 id="5-2-切换窗口"><a href="#5-2-切换窗口" class="headerlink" title="5.2 切换窗口"></a>5.2 切换窗口</h3><p><code>tmux select-window</code>命令用来切换窗口</p>
+<pre><code class="shell"># 切换到指定编号的窗口
+$ tmux select-window -t &lt;window-number&gt;
+
+# 切换到指定名称的窗口
+$ tmux select-window -t &lt;window-name&gt;
+</code></pre>
+<h3 id="5-3-重命名窗口"><a href="#5-3-重命名窗口" class="headerlink" title="5.3 重命名窗口"></a>5.3 重命名窗口</h3><p><code>tmux rename-window</code>命令用于为当前窗口起名（或重命名）</p>
+<pre><code class="shell">$ tmux rename-window &lt;new-name&gt;
+</code></pre>
+<h3 id="5-4-退出窗口"><a href="#5-4-退出窗口" class="headerlink" title="5.4 退出窗口"></a>5.4 退出窗口</h3><p><code>exit</code>命令用于退出</p>
+<pre><code class="shell">$ exit
+</code></pre>
+<h3 id="5-5-窗口快捷键"><a href="#5-5-窗口快捷键" class="headerlink" title="5.5 窗口快捷键"></a>5.5 窗口快捷键</h3><p>输入快捷键之前必须先输入前缀键<code>Ctrl+b</code>,再输入以下快捷键</p>
+<pre><code class="shell"> c          ：创建一个新窗口，状态栏会显示多个窗口的信息。
+ n          ：切换到下一个窗口。
+ &lt;number&gt;   ：切换到指定编号的窗口，其中的&lt;number&gt;是状态栏上的窗口编号。
+ w          ：从列表中选择窗口。
+ ,          ：窗口重命名。
+</code></pre>
+<h2 id="6-其他命令"><a href="#6-其他命令" class="headerlink" title="6 其他命令"></a>6 其他命令</h2><pre><code class="shell"># 列出所有快捷键，及其对应的 Tmux 命令
+$ tmux list-keys
+
+# 列出所有 Tmux 命令及其参数
+$ tmux list-commands
+
+# 列出当前所有 Tmux 会话的信息
+$ tmux info
+
+# 重新加载当前的 Tmux 配置
+$ tmux source-file ~/.tmux.conf
+</code></pre>
+<h2 id="7-参考资料"><a href="#7-参考资料" class="headerlink" title="7 参考资料"></a>7 参考资料</h2><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">https://www.ruanyifeng.com/blog/2019/10/tmux.html</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以通过知乎私信，也可以邮件至 maxwellwave@foxmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2022 MaxwellWave
+</p>
+<!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":180,"height":360},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 582px;
+    }
+    .nav.fullscreen {
+        margin-left: -582px;
+    }
+    .nav-left {
+        width: 160px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 552px;
+        }
+        .nav.fullscreen {
+            margin-left: -552px;
+        }
+        .nav-left {
+            width: 160px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 552px;
+            margin-left: -552px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
