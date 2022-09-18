@@ -14,7 +14,7 @@
 <meta property="og:description" content="Linux命令学习-find0 描述find命令递归遍历所指定的目录树，针对每个文件依次执行find命令中的表达式，表达式首先根据逻辑运算符进行结合，然后依次从左至右对表达式求值。使用该命令时，如果不设置任何参数，则该命令将在当前目录下查找子目录与文件，并将查找到的子目录和文件全部显示。该命令支持按文件、文件夹、名称、创建日期、修改日期、所有者和权限进行搜索；支持使用-exec对找到的文件和文件夹">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-16T13:10:06.000Z">
-<meta property="article:modified_time" content="2022-09-18T14:16:13.842Z">
+<meta property="article:modified_time" content="2022-09-18T14:20:15.347Z">
 <meta property="article:author" content="MaxwellWave">
 <meta property="article:tag" content="command">
 <meta name="twitter:card" content="summary">
@@ -361,7 +361,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-09-18 22:16:13'>2022-09-16 21:10</time>
+            Created At : <time class="date" title='Updated At: 2022-09-18 22:20:15'>2022-09-16 21:10</time>
         
     </div>
     <div class="article-meta">
@@ -402,12 +402,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Linux命令学习-find"><a href="#Linux命令学习-find" class="headerlink" title="Linux命令学习-find"></a>Linux命令学习-find</h1><h2 id="0-描述"><a href="#0-描述" class="headerlink" title="0 描述"></a>0 描述</h2><p><code>find</code>命令递归遍历所指定的目录树，针对每个文件依次执行find命令中的表达式，表达式首先根据逻辑运算符进行结合，然后依次从左至右对表达式求值。使用该命令时，如果不设置任何参数，则该命令将在当前目录下查找子目录与文件，并将查找到的子目录和文件全部显示。该命令支持按文件、文件夹、名称、创建日期、修改日期、所有者和权限进行搜索；支持使用<code>-exec</code>对找到的文件和文件夹执行其他的<code>UNIX</code>命令</p>
-<h2 id="1-语法"><a href="#1-语法" class="headerlink" title="1 语法"></a>1 语法</h2><pre><code class="shell">#语法
+<h2 id="1-语法"><a href="#1-语法" class="headerlink" title="1 语法"></a>1 语法</h2><pre><code class="shell">$ # 语法
 $ find [where to start searching from] [expression determines what to find] [-options] [what to find]
 
-#实例
-$ find . -type f -name &quot;*.v&quot; -exec ls -l &#123;&#125; \;
-#找到名称为包含.v的一般文件,打印后并显示出详细信息
+$ #实例
+$ find . -type f -name &quot;*.v&quot; -exec ls -l &#123;&#125; \; #找到名称为包含.v的一般文件,打印后并显示出详细信息
 </code></pre>
 <p><code>find</code>命令根据<code>- () !</code>判断<code>path</code>和<code>expression</code>，之前为路径，之后为操作表达式。如果路径是空字符串则默认使用当前路径，如果表达式为空则默认使用预设表达式<code>-print</code>。即当在终端输入<code>find</code>命令后会打印出当前目录下的子目录及文件。</p>
 <p><code>find</code>命令的基本的表达式分为三类，分别是设置项(option)、测试项(test)、动作项(action)，这三类又可以通过逻辑运算符(operator)组合在一起形成更大更复杂的表达式。</p>
@@ -421,12 +420,12 @@ $ find . -type f -name &quot;*.v&quot; -exec ls -l &#123;&#125; \;
 <ul>
 <li><code>-and</code>，简写<code>-a</code>，逻辑与<br>当使用多个表达式时，通过<code>-a</code>连接，表示必须满足多个表达式的条件，find才会输出结果。<br><strong>注意：当存在多个表达式而不输入逻辑运算符时，默认使用<code>-and</code></strong></li>
 </ul>
-<pre><code class="shell">#格式
+<pre><code class="shell">$ #格式
 $ find path expr1 expr2 ...
 $ find path expr1 -a expr2 -a ...
 $ find path expr1 -and expr2 -and ...
 
-实例
+$ #实例
 $ find ./ -type f -name &quot;*.v&quot;       #查找当前目录下文件名含.v的所有普通文件
 $ find ./ -type f -a -name &quot;*.v&quot;    #同上
 $ find ./ -type f -and -name &quot;*.v&quot;  #同上
@@ -434,30 +433,30 @@ $ find ./ -type f -and -name &quot;*.v&quot;  #同上
 <ul>
 <li><code>-or</code>，简写<code>-o</code>，逻辑或<br>当使用多个表达式时，通过<code>-o</code>连接，表示只需要满足多个表达式中的一个条件，<code>find</code>就会输出结果</li>
 </ul>
-<pre><code class="shell">#格式
+<pre><code class="shell">$ #格式
 $ find path expr1 -o expr2
 $ find path expr1 -or expr2
 
-#实例
+$ #实例
 $ find . -name &quot;*.c&quot; -o -name &quot;*.h&quot;    #找出当前目录下文件名包含`.c`与`.h`的文件n/
 $ find . -name &quot;*.c&quot; -or -name &quot;*.h&quot;   #同上
 </code></pre>
 <ul>
 <li><code>-not</code>，简写<code>!</code>，逻辑非<br>当在表达式前面添加<code>!</code>或者<code>-not</code>表示<code>find</code>输出与当前表达式相反的结果</li>
 </ul>
-<pre><code class="shell">#格式
+<pre><code class="shell">$ #格式
 $ find path ! expr1
 $ find path -not expr1
 
-#实例
+$ #实例
 $ find ./ -not -name &quot;*.sv&quot; #查找当前目录下文件名不含.sv的文件
 </code></pre>
 <ul>
 <li>逗号运算符<code>,</code><br>表达式使用<code>,</code>隔开时，输出时会忽略<code>expr1</code>的值，只输出<code>expr2</code>的值。<code>man</code>手册中提到会与<code>-fprintf</code></li>
 </ul>
-<pre><code class="shell">#格式
+<pre><code class="shell">$ #格式
 $ find path expr1 , expr2
-#实例
+$ #实例
 $ find ./ -name &quot;*.sv&quot; , -name &quot;*.v&quot; #输出当前目录下文件名包含.v的文件
 </code></pre>
 <h3 id="1-2-逻辑运算符的优先级"><a href="#1-2-逻辑运算符的优先级" class="headerlink" title="1.2 逻辑运算符的优先级"></a>1.2 逻辑运算符的优先级</h3><p>以下逻辑表达式的优先级依次递减</p>
@@ -511,7 +510,7 @@ $ find . -name &quot;*.[ch]&quot;         #查找当前目录下所有以.c和.h
 $ find . -name &quot;*.[!ch]&quot;        #查找当前目录下所有不以以.c和.h命名的文件
 </code></pre>
 <h3 id="2-2-文件类型匹配参数-type"><a href="#2-2-文件类型匹配参数-type" class="headerlink" title="2.2 文件类型匹配参数 -type"></a>2.2 文件类型匹配参数 <code>-type</code></h3><p><code>-type</code>参数用于根据文件的类型进行查找，比如有时候需要对文件夹和文件进行区分查找就需要使用到此函数，常用的文件类型有以下几种</p>
-<pre><code class="shell">#格式
+<pre><code class="shell">$ #格式
 $ find . -type f  #查找当前路径下的一般文件  
 
 d : 目录型文件
@@ -524,9 +523,9 @@ c : 字符文件
 <blockquote>
 <p>PS : 上文中提高使用<code>-regex</code>参数后，<code>pattern</code>就支持正则表达式，故其中的元字符都为正则表达式的含义。即 <code>.</code>表示任意的单个字符，<code>*</code>为匹配前面的子表达式零次或多次，则<code>.*</code>即可表达当前文件中的路径</p>
 </blockquote>
-<pre><code class="shell">#实例
+<pre><code class="shell">$ #实例
 $ find . -regex &quot;.*\(\.v$\|.sv$\)&quot;  #查找当前目录下.v和.sv的文件
-#实际上当习惯使用管道符合后，可通过find结合grep命令使用正则表达式查找
+$ #实际上当习惯使用管道符合后，可通过find结合grep命令使用正则表达式查找
 $ find . | grep &quot;\(\.v$\|\.sv$\)&quot;   #查找当前目录下.v和.sv的文件
 </code></pre>
 <h3 id="2-4-调用外部命令参数-exec和-ok"><a href="#2-4-调用外部命令参数-exec和-ok" class="headerlink" title="2.4 调用外部命令参数-exec和-ok"></a>2.4 调用外部命令参数<code>-exec</code>和<code>-ok</code></h3><p>当不使用管道符合<code>|</code>调用外部命令时，<code>find</code>也可以使用<code>-exec</code>和<code>-ok</code> 参数使其支持调用外部参数。</p>
