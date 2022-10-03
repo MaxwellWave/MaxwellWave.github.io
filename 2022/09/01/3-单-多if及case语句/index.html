@@ -6,17 +6,22 @@
   <meta name="keywords" content=" design , verilog ">
   <meta name="description" content="单if语句、多if语句及case语句 | MaxwellWave">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="112145">
+<meta name="description" content="描述在使用hexo将博客部署到GitHub仓库时出现如下错误git SSL certificate problem: unable to get local issuer certificate   原因此问题是由于没有配置信任的服务器HTTPS验证。默认cURL被设为不信任任何CAs，就是说，它不信任任何服务器验证。 解决输入以下命令即可解决 git config --globle http.s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="9-test">
-<meta property="og:url" content="http://example.com/2022/10/03/9-test/index.html">
+<meta property="og:title" content="8-git SSL certificate problem">
+<meta property="og:url" content="http://example.com/2022/10/03/8-git%20SSL%20certificate%20problem/index.html">
 <meta property="og:site_name" content="MaxwellWave">
-<meta property="og:description" content="112145">
+<meta property="og:description" content="描述在使用hexo将博客部署到GitHub仓库时出现如下错误git SSL certificate problem: unable to get local issuer certificate   原因此问题是由于没有配置信任的服务器HTTPS验证。默认cURL被设为不信任任何CAs，就是说，它不信任任何服务器验证。 解决输入以下命令即可解决 git config --globle http.s">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/8-20221003204910.png">
 <meta property="article:published_time" content="2022-10-03T11:55:22.000Z">
-<meta property="article:modified_time" content="2022-10-03T11:58:18.925Z">
+<meta property="article:modified_time" content="2022-10-03T13:10:42.980Z">
 <meta property="article:author" content="MaxwellWave">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="problem">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/8-20221003204910.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -164,6 +169,20 @@
         
             
                 <li>
+                    <div data-rel="Tools">
+                        
+                        Tools
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
                     <div data-rel="Other">
                         
                         Other
@@ -189,7 +208,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="8">
-<input type="hidden" id="yelog_site_word_count" value="12.6k">
+<input type="hidden" id="yelog_site_word_count" value="12.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -247,6 +266,18 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>problem</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>verilog</a>
             </li>
         
@@ -262,11 +293,11 @@
     <nav id="title-list-nav">
         
         
-        <a  class="全部文章 "
-           href="/2022/10/03/9-test/"
-           data-tag=""
+        <a  class="全部文章 Tools "
+           href="/2022/10/03/8-git%20SSL%20certificate%20problem/"
+           data-tag="git,hexo,problem"
            data-author="" >
-            <span class="post-title" title="9-test">9-test</span>
+            <span class="post-title" title="8-git SSL certificate problem">8-git SSL certificate problem</span>
             <span class="post-date" title="2022-10-03 19:55:22">2022/10/03</span>
         </a>
         
@@ -439,8 +470,8 @@
     end
 </code></pre>
 <p>以上述代码为例，其描述的电路为</p>
-<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/%E5%8D%95if%E8%AF%AD%E5%8F%A5.png"><br>其中d具由最高优先级依次递减，a的优先级最低。</p>
-<p>vivado综合出来的电路如下图所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/%E5%8D%95if_vivado.png"><br>综合出来的电路与我们心中的电路一致。</p>
+<p><img src="/%E5%8D%95if%E8%AF%AD%E5%8F%A5.png"><br>其中d具由最高优先级依次递减，a的优先级最低。</p>
+<p>vivado综合出来的电路如下图所示<br><img src="/%E5%8D%95if_vivado.png"><br>综合出来的电路与我们心中的电路一致。</p>
 <h3 id="1-2-if-else语句的优先级对电路的影响"><a href="#1-2-if-else语句的优先级对电路的影响" class="headerlink" title="1.2 if-else语句的优先级对电路的影响"></a>1.2 if-else语句的优先级对电路的影响</h3><p>以一个简单的计数器电路为例</p>
 <pre><code class="verilog">//正确示例
 always@(posedge clk or negedge rst_n)
@@ -477,7 +508,7 @@ always@(posedge clk or negedge rst_n)
 else
     value   =   C + D;
 </code></pre>
-<p>有了之前的基础，我们可以很容易的画出此段代码描绘的电路<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/example1.png"><br>但是由于加法器会比选择器复杂的多，所需要的面积也更大，故可使用如下代码重构<code>if-else</code>映射的硬件结构</p>
+<p>有了之前的基础，我们可以很容易的画出此段代码描绘的电路<br><img src="/example1.png"><br>但是由于加法器会比选择器复杂的多，所需要的面积也更大，故可使用如下代码重构<code>if-else</code>映射的硬件结构</p>
 <pre><code class="verilog">if(flag)
     begin
         op1 = A;
@@ -491,7 +522,7 @@ else
 
 assign  value = op1 + op2; 
 </code></pre>
-<p>此段代码描绘的电路如下图所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/example2.png"><br>该方法减少了一个加法器，使得电路的面积得以减少，但是控制通道信号flag的延迟却从一个加法器变成了一个加法器和数据选择器之后，如果<code>flag</code>信号到来的比较晚，则此电路的性能就会比前一种电路的性能更差。<br>故需要根据设计的目标小心设计：选择<strong>先“加”后“选”<strong>还是</strong>先“选”后“加”</strong>。</p>
+<p>此段代码描绘的电路如下图所示<br><img src="/example2.png"><br>该方法减少了一个加法器，使得电路的面积得以减少，但是控制通道信号flag的延迟却从一个加法器变成了一个加法器和数据选择器之后，如果<code>flag</code>信号到来的比较晚，则此电路的性能就会比前一种电路的性能更差。<br>故需要根据设计的目标小心设计：选择<strong>先“加”后“选”<strong>还是</strong>先“选”后“加”</strong>。</p>
 <h2 id="2-多if语句"><a href="#2-多if语句" class="headerlink" title="2 多if语句"></a>2 多if语句</h2><h3 id="2-1-多if语句的优先级及电路"><a href="#2-1-多if语句的优先级及电路" class="headerlink" title="2.1 多if语句的优先级及电路"></a>2.1 多if语句的优先级及电路</h3><p>多if语句与单if语句类似，具有优先级，且消耗二选一组合逻辑器件。与单if语句不同的是其最高优先级给到最迟到达的信号。以下述代码为例</p>
 <pre><code class="verilog">always@(a or b or c or d or sel0 or sel1 or sel2 or sel3)
     begin
@@ -506,9 +537,9 @@ assign  value = op1 + op2;
             z	=	d;
     end	
 </code></pre>
-<p><code>alwsys</code>语句中描述组合逻辑电路使用阻塞赋值，其内部语句顺序执行，故其最高优先级是<code>sel3</code>决定的<code>d</code>，最低优先级是<code>sel0</code>决定的<code>a</code>。故而可以画出此段代码描述的电路，因调整了优先级顺序，故于上文中单if语句的电路一致。<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/1.png"></p>
+<p><code>alwsys</code>语句中描述组合逻辑电路使用阻塞赋值，其内部语句顺序执行，故其最高优先级是<code>sel3</code>决定的<code>d</code>，最低优先级是<code>sel0</code>决定的<code>a</code>。故而可以画出此段代码描述的电路，因调整了优先级顺序，故于上文中单if语句的电路一致。<br><img src="/1.png"></p>
 <p>与vivado综合电路一致</p>
-<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/2.png"> </p>
+<p><img src="/2.png"> </p>
 <h3 id="2-2-当多if语句在时序电路中时的电路"><a href="#2-2-当多if语句在时序电路中时的电路" class="headerlink" title="2.2 当多if语句在时序电路中时的电路"></a>2.2 当多if语句在时序电路中时的电路</h3><p>我们将上述代码修改为如下代码描述的时序逻辑电路</p>
 <pre><code class="verilog">always@(posedge clk)
     begin
@@ -523,9 +554,9 @@ assign  value = op1 + op2;
             z	&lt;=	d;
     end	
 </code></pre>
-<p>首先我们要知道在时序逻辑电路中使用非阻塞赋值，并且在always语句块结束时将右端表达式的值赋值给左端。我们可以推断出上述代码描述时序电路的优先级与前面的组合逻辑电路一致，不同的地方在于输出端口加了一个触发器，故而我们可以画出其电路<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/3.png">  </p>
+<p>首先我们要知道在时序逻辑电路中使用非阻塞赋值，并且在always语句块结束时将右端表达式的值赋值给左端。我们可以推断出上述代码描述时序电路的优先级与前面的组合逻辑电路一致，不同的地方在于输出端口加了一个触发器，故而我们可以画出其电路<br><img src="/3.png">  </p>
 <p>与vivado综合电路一致</p>
-<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/4.png">   </p>
+<p><img src="/4.png">   </p>
 <h3 id="2-3-多if语句的应用场景"><a href="#2-3-多if语句的应用场景" class="headerlink" title="2.3 多if语句的应用场景"></a>2.3 多if语句的应用场景</h3><p>若某些设计中，有些信号要求先到达(如关键便能信号、选择信号等)，而有些信号需要后到达(如慢速信号、有效时间较长的信号等)，此时则需要使用<code>if..if...</code>结构。然而其实此类场合也可以选择使用<code>if-else</code>,故在设计过程中尽可能<strong>避免使用<code>if..if...</code>结构</strong>。</p>
 <h2 id="3-case语句"><a href="#3-case语句" class="headerlink" title="3 case语句"></a>3 case语句</h2><h3 id="3-1-case语句的优先级及电路"><a href="#3-1-case语句的优先级及电路" class="headerlink" title="3.1 case语句的优先级及电路"></a>3.1 case语句的优先级及电路</h3><p><strong><code>case</code>语句当条件互斥时是没有优先级，但是条件选项不要求互斥。虽然这些条件选项是并发比较的，但执行效果是谁在前且条件为真谁被执行</strong></p>
 <p><code>case</code>语句描述的电路是一个多路选择器。</p>
@@ -540,9 +571,9 @@ assign  value = op1 + op2;
         endcase
     end
 </code></pre>
-<p>以上述代码为例其描述的电路是一个<strong>条件选项互斥</strong>的四选一数据选择器，电路如下所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/5.png"> </p>
+<p>以上述代码为例其描述的电路是一个<strong>条件选项互斥</strong>的四选一数据选择器，电路如下所示<br><img src="/5.png"> </p>
 <p>与vivado综合电路一致</p>
-<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/6.png">   </p>
+<p><img src="/6.png">   </p>
 <p>当将条件选项修改成非互斥时，我们可以看看综合出来的电路是怎样的</p>
 <pre><code class="verilog">always@(a or b or c or d or sel0 or sel1)
     begin
@@ -555,7 +586,7 @@ assign  value = op1 + op2;
         endcase
     end
 </code></pre>
-<p>如上述代码，笔者将第三个条件选项修改成与第二个条件选项一致，通过vivado综合出来的电路如下图所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/7.png"><br>可以看到此时<code>b</code>是永远无法赋值到<code>z</code>的，同时由于<code>&#123;sel0,sel1&#125;</code>可表示4种情况，而<code>case</code>中的条件选项未完备，故而会出现一个<code>default</code>接口，将<code>z</code>置零。</p>
+<p>如上述代码，笔者将第三个条件选项修改成与第二个条件选项一致，通过vivado综合出来的电路如下图所示<br><img src="/7.png"><br>可以看到此时<code>b</code>是永远无法赋值到<code>z</code>的，同时由于<code>&#123;sel0,sel1&#125;</code>可表示4种情况，而<code>case</code>中的条件选项未完备，故而会出现一个<code>default</code>接口，将<code>z</code>置零。</p>
 <h3 id="3-2-case语句的应用场景"><a href="#3-2-case语句的应用场景" class="headerlink" title="3.2 case语句的应用场景"></a>3.2 case语句的应用场景</h3><p>相对于<code>if-else</code>语句只有两个分支而言，<code>case</code>语句是一种可实现多路分支选择控制的语句，比<code>if-else</code>语句更为直观和方便。一般的，<code>case</code>语句多用于多见译码电路的设计，如描述<strong>译码器、数据选择器、状态机及微处理器的指令译码</strong>等。</p>
 <h3 id="3-3-casez与casex的用法"><a href="#3-3-casez与casex的用法" class="headerlink" title="3.3 casez与casex的用法"></a>3.3 casez与casex的用法</h3><p><strong>用前提醒： casez与casex都不可综合，多用于仿真。</strong></p>
 <p>casex、 casez 语句是 case 语句的变形，用来表示条件选项中的无关项。</p>
