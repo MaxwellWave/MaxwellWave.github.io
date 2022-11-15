@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>ubuntu安装后的初始化配置 | MaxwellWave</title>
-  <meta name="keywords" content=" ubuntu ">
-  <meta name="description" content="ubuntu安装后的初始化配置 | MaxwellWave">
+  <title>MaxwellWave</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="MaxwellWave">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Win11下载并安装VMware0 前置条件打开控制面板，在程序&gt;-卸载程序&gt;-左侧启用或关闭windows功能界面下，勾选适用于linux的Windows子系统和虚拟机平台，取消勾选Hyper-V，如下图所示需要注意的是最新版本的win10和win11是没有Hyper-V，需要新建一个bat脚本文件手动添加，脚本内容如下 pushd &quot;%~dp0&quot;   dir &#x2F;">
 <meta property="og:type" content="article">
@@ -62,7 +62,7 @@
 
 
 <body>
-<aside class="nav">
+<aside class="nav mobile">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -411,60 +411,12 @@
         </div>
     </div>
 </aside>
-<div id="post">
+<div id="post" class="index">
     <div class="pjax">
-        <article id="post-9-ubuntu安装后的初始化配置" class="article article-type-post" itemscope itemprop="blogPost">
+        <article class="index">
+            <div class="toc-ref">
     
-        <h1 class="article-title">ubuntu安装后的初始化配置</h1>
-    
-    <div class="article-meta">
-        
-        
-        
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="Tools">Tools</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color2">ubuntu</a>
-            
-        </span>
-        
-    </div>
-    <div class="article-meta">
-        
-            Created At : <time class="date" title='Updated At: 2022-10-06 10:39:47'>2022-10-04 19:10</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        <span>Count:877</span>
-        
-        
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
-        
-    </div>
-    
-    <div class="toc-ref">
-    
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E5%8A%A0%E9%80%9F"><span class="toc-text">1 开机启动加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%A7%BB%E9%99%A4ubuntu%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E8%87%AA%E5%B8%A6%E8%BD%AF%E4%BB%B6"><span class="toc-text">2 移除ubuntu不必要的自带软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%A6%81%E6%AD%A2%E5%BC%B9%E5%87%BA%E6%9B%B4%E6%96%B0%E6%A1%86"><span class="toc-text">3 禁止弹出更新框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85VMware-tools"><span class="toc-text">4 安装VMware tools</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E8%AE%BE%E7%BD%AE"><span class="toc-text">5 共享文件夹设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E8%A7%A3%E5%86%B3%E9%87%8D%E5%90%AF%E5%90%8E%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E6%B6%88%E5%A4%B1%E9%97%AE%E9%A2%98"><span class="toc-text">5.1 解决重启后共享文件夹消失问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%A7%A3%E5%86%B3%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%86%85%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%EF%BC%8C%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E4%B8%8D%E5%87%8F%E5%B0%91%E9%97%AE%E9%A2%98"><span class="toc-text">6 解决虚拟机内删除文件，磁盘空间不减少问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-text">7 安装谷歌中文输入法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Welcome-to-MaxwellWave%E2%80%99s-blog"><span class="toc-text">Welcome to MaxwellWave’s blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2"><span class="toc-text">关于博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%90%8D%E7%A7%B0"><span class="toc-text">关于名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%B9%B3%E5%8F%B0"><span class="toc-text">关于平台</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -477,88 +429,49 @@
     }
 </style>
 </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-开机启动加速"><a href="#1-开机启动加速" class="headerlink" title="1 开机启动加速"></a>1 开机启动加速</h2><p>无论是物理机还是虚拟机，当安装好后我们会发现其启动速度较慢。此时可以使用<code>system-analyze</code>命令去查找开机启动项。首先可以通过<code>man</code>命令查询<code>system-analyze</code>的使用方法。比较常用到的参数就是<code>blame</code>,通过<code>man</code>手册中查询可知，<code>system-analyze blame</code>用来显示开机启动项的时间，从而优化开机启动的时间<br><img src="/2022/10/04/9-ubuntu%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE/20221004192927.png">  </p>
-<pre><code class="shell">$ systemd-analyze blame
-1.963s NetworkManager-wait-online.service
-1.094s snapd.service
- 937ms dev-sda3.device
- 606ms snapd.seeded.service
-...
-</code></pre>
-<p>可以看到输入完命令后终端会显示开机启动项的时间，其中最长时间的应该是<code>plymouth-quit-wait.service</code>,博主已经将其关闭。关闭与开启服务命令如下</p>
-<pre><code class="shell">$ sudo systemctl disable &lt;需要关闭的服务&gt;
-$ sudo systemctl enable  &lt;需要开启的服务&gt;
-$ #实例
-$ sudo systemctl disable NetworkManager-wait-online.service
-$ sudo systemctl enable NetworkManager-wait-online.service
-</code></pre>
-<p>但是当使用命令</p>
-<pre><code class="shell">sudo systemctl disable plymouth-quit-wait.service
-</code></pre>
-<p>禁用<code>plymouth-quit-wait.service</code>时，却发现<code>disable</code>并不能彻底将其禁用，只能使用比<code>disable</code>更强力的<code>mask</code>来禁用。两者的区别可通过<code>man systemctl</code>查询。</p>
-<pre><code class="shell">$ sudo systemctl mask plymouth-quit-wait.service
-</code></pre>
-<p>再次重启后，使用<code>system-analyze blame</code>查询可以发现<code>plymouth-quit-wait.service</code>已经被禁用</p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/11491ee15344">参考资料</a></p>
-<h2 id="2-移除ubuntu不必要的自带软件"><a href="#2-移除ubuntu不必要的自带软件" class="headerlink" title="2 移除ubuntu不必要的自带软件"></a>2 移除<code>ubuntu</code>不必要的自带软件</h2><pre><code class="shell">$ #删除libreoffice
-$ sudo apt-get remove libreoffice-common
-$ #删除不必要的软件
-$ sudo apt-get remove thunderbird totem rhythmbox simple-scan gnome-mahjongg aisleriot gnome-mines cheese transmission-common gnome-sudoku  
-</code></pre>
-<h2 id="3-禁止弹出更新框"><a href="#3-禁止弹出更新框" class="headerlink" title="3 禁止弹出更新框"></a>3 禁止弹出更新框</h2><pre><code class="shell">sudo rm /etc/apt/apt.conf.d/99update-notifier
-</code></pre>
-<h2 id="4-安装VMware-tools"><a href="#4-安装VMware-tools" class="headerlink" title="4 安装VMware tools"></a>4 安装VMware tools</h2><p>通常情况下在<code>VMware</code>安装系统时会自动安装好<code>VMware tools</code>,此外还可以通过以下命令来进行安装</p>
-<pre><code class="shell">vmware-toolbox-cmd --version    ##查看是否安装VMware tools
+            <h1 id="Welcome-to-MaxwellWave’s-blog"><a href="#Welcome-to-MaxwellWave’s-blog" class="headerlink" title="Welcome to MaxwellWave’s blog"></a>Welcome to MaxwellWave’s blog</h1><h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p>本博客是博主MaxwellWave的个人网站，主要用来记录自己的学习过程，涉及数字IC、FPGA、Linux等方面的相<br>关知识。</p>
+<p>到目前为止已经记录了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
+<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+<p>目前本站未开通评论功能，您可通过头像下方的知乎链接私信博主，也可以通过邮件<a href="mailto:&#109;&#x61;&#x78;&#x77;&#101;&#x6c;&#108;&#x77;&#97;&#x76;&#101;&#x40;&#102;&#x6f;&#x78;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#111;&#109;">&#109;&#x61;&#x78;&#x77;&#101;&#x6c;&#108;&#x77;&#97;&#x76;&#101;&#x40;&#102;&#x6f;&#x78;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#111;&#109;</a>联系</p>
+<h2 id="关于名称"><a href="#关于名称" class="headerlink" title="关于名称"></a>关于名称</h2><p>博主本科是学通信的，在学习理论知识的时候并没有直观地感受到麦克斯韦的强大，直到在大三的时候自己手动焊接一步一步做了一个收音机才深刻感受到电磁波的魅力，才知道除了我们肉眼可见的真实世界之外，物质还存在在一种新的形式——电磁波，故博主以麦克斯韦电磁波作为网站名称致敬，但由于英文 <strong>Maxwell Electromagnetic Waves</strong>太长，博主就将 <strong>Electromagnetic</strong>删除，这就有了本站名称的由来~</p>
+<h2 id="关于平台"><a href="#关于平台" class="headerlink" title="关于平台"></a>关于平台</h2><p>本站是通过 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，部署在 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>主题 <a target="_blank" rel="noopener" href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 原创作者叶落阁已经在github上开源，大家如有需要可自行前往下载</p>
+<p>本站主要功能：</p>
+<ul>
+<li><p>搜索支持文章标题、标签(#标签)、作者(@作者)</p>
+</li>
+<li><p>pad&#x2F;手机等移动端适配</p>
+</li>
+<li><p>页面全局快捷键 </p>
+<table>
+<thead>
+<tr>
+<th align="center">快捷键</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">s</td>
+<td align="center">打开&#x2F;取消全屏</td>
+</tr>
+<tr>
+<td align="center">w</td>
+<td align="center">打开&#x2F;关闭文章目录</td>
+</tr>
+<tr>
+<td align="center">i</td>
+<td align="center">获取搜索框焦点</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
 
-sudo apt install open-vm-tools-desktop
-sudo apt install open-vm-tools
-</code></pre>
-<p>博主在安装好<code>vmware tools</code>后尝试过多种方法仍无法解决文件的拖拽，但此功能有时候在安装好系统后就可直接使用。</p>
-<h2 id="5-共享文件夹设置"><a href="#5-共享文件夹设置" class="headerlink" title="5 共享文件夹设置"></a>5 共享文件夹设置</h2><p>当需要在<code>linux</code>和<code>windows</code>平台下实现共享文件夹只需要在<code>VMware</code>界面依次选择<code>虚拟机&gt;设置&gt;选项&gt;共享文件夹</code>进行如下设置<br><img src="/2022/10/04/9-ubuntu%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE/20221005202344.png"><br>需要注意在<code>windows</code>下需要将共享文件夹的属性设置成共享式<br><img src="/2022/10/04/9-ubuntu%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE/20221005203439.png"><br>设置好后可以在<code>ubuntu</code>系统<code>/mnt/hgfs/</code>路径下找到共享的文件夹。</p>
-<h3 id="5-1-解决重启后共享文件夹消失问题"><a href="#5-1-解决重启后共享文件夹消失问题" class="headerlink" title="5.1 解决重启后共享文件夹消失问题"></a>5.1 解决重启后共享文件夹消失问题</h3><p>在使用<code>ubuntu22.04</code>设置好共享文件夹后，重启后发现共享文件夹消失。实际上共享文件夹已经设置成功，只是没有自动挂载。使用下面的命令可以查看是否设置好共享文件夹，如果设置好则会输出共享文件夹名</p>
-<pre><code class="shell">vmware-hgfsclient   #回车后输出目录名virtual_share
-</code></pre>
-<p><strong>设置开机自动挂载</strong></p>
-<pre><code class="shell">$ sudo vim /etc/rc.local 
-</code></pre>
-<p>输入以下内容</p>
-<pre><code class="shell">#!/bin/sh -e
-sudo sudo vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other
-</code></pre>
-<p>编辑好后保存退出，进入<code>etc</code>目录，给文件添加可执行权限</p>
-<pre><code class="shell">chmod +x rc.local
-</code></pre>
-<p>设置好后每次启动就可以自动挂载共享文件夹了</p>
-<h2 id="6-解决虚拟机内删除文件，磁盘空间不减少问题"><a href="#6-解决虚拟机内删除文件，磁盘空间不减少问题" class="headerlink" title="6 解决虚拟机内删除文件，磁盘空间不减少问题"></a>6 解决虚拟机内删除文件，磁盘空间不减少问题</h2><p>当安装好<code>VMware-Tools</code>时可直接输入以下命令</p>
-<pre><code class="shell">sudo /usr/bin/vmware-toolbox-cmd disk list
-sudo /usr/bin/vmware-toolbox-cmd disk shrink /
-</code></pre>
-<p>之后会弹出一个进度条，等待其结束即可</p>
-<h2 id="7-安装谷歌中文输入法"><a href="#7-安装谷歌中文输入法" class="headerlink" title="7 安装谷歌中文输入法"></a>7 安装谷歌中文输入法</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/529892064">参考资料</a></p>
-
-      
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以通过知乎私信，也可以邮件至 maxwellwave@foxmail.com </span>
-    </div>
-</article>
-
-
-<p>
-    <a  class="dashang" onclick="dashangToggle()">💰</a>
-</p>
-
-
-
-
-
-
-    
-
-
-
-
+        </article>
+        
+        <p>
+            <a  class="dashang" onclick="dashangToggle()">赏</a>
+        </p>
+        
+        
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -567,11 +480,11 @@ sudo /usr/bin/vmware-toolbox-cmd disk shrink /
 <!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
 
     </div>
-    <div class="full-toc">
-        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+</div>
+<div class="full-toc">
+    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
-    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
