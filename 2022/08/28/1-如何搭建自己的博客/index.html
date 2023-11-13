@@ -6,22 +6,25 @@
   <meta name="keywords" content=" blog ">
   <meta name="description" content="如何搭建自己的博客 | MaxwellWave">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="0 需求使用verilog实现搜索从高位到低位的数据中第一个1’b1位，并输出所对应的位号码 1 分析思路1：如果已知数据的位宽，且数据位宽较小，则可以直接采用case语句进行查找实现 思路2：对于一串查找首1的输入数据，如果已知其固定位宽，那么可以通过二分法的方式进行查找，但是二分法又必须保证是2的幂次方才可以循环判断。如8可以拆成8，4，2三级，但如果是10的话，二分法拆到第二级5就无法继续往">
+<meta name="description" content="0 前言log函数在无线通信中经常会用到，但是因为其涉及浮点数，而在Verilog中要实现浮点数就必须进行定点数量化，否则的话在硬件上无法实现。 1 理论基础 2 Verilog实现方法根据上一小结中可以知道对于任意的log函数都可以在log2的基础上通过换底公式实现，故而在Verilog中可以通过实现log2函数，并封装成一个单独的模块，在实现任意log函数的时候，只需要通过调用此模块即可。 根">
 <meta property="og:type" content="article">
-<meta property="og:title" content="查找首1的三种方法">
-<meta property="og:url" content="http://example.com/2023/11/13/13-%E6%9F%A5%E6%89%BE%E9%A6%961%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:title" content="log函数的Verilog实现">
+<meta property="og:url" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="MaxwellWave">
-<meta property="og:description" content="0 需求使用verilog实现搜索从高位到低位的数据中第一个1’b1位，并输出所对应的位号码 1 分析思路1：如果已知数据的位宽，且数据位宽较小，则可以直接采用case语句进行查找实现 思路2：对于一串查找首1的输入数据，如果已知其固定位宽，那么可以通过二分法的方式进行查找，但是二分法又必须保证是2的幂次方才可以循环判断。如8可以拆成8，4，2三级，但如果是10的话，二分法拆到第二级5就无法继续往">
+<meta property="og:description" content="0 前言log函数在无线通信中经常会用到，但是因为其涉及浮点数，而在Verilog中要实现浮点数就必须进行定点数量化，否则的话在硬件上无法实现。 1 理论基础 2 Verilog实现方法根据上一小结中可以知道对于任意的log函数都可以在log2的基础上通过换底公式实现，故而在Verilog中可以通过实现log2函数，并封装成一个单独的模块，在实现任意log函数的时候，只需要通过调用此模块即可。 根">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2023/11/13/13-%E6%9F%A5%E6%89%BE%E9%A6%961%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/image_1.c8dbad34.png">
-<meta property="og:image" content="http://example.com/2023/11/13/13-%E6%9F%A5%E6%89%BE%E9%A6%961%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/image_2.01f8653b.png">
-<meta property="og:image" content="http://example.com/2023/11/13/13-%E6%9F%A5%E6%89%BE%E9%A6%961%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/image_3.d9762094.png">
-<meta property="article:published_time" content="2023-11-13T02:00:17.000Z">
-<meta property="article:modified_time" content="2023-11-13T02:02:25.647Z">
+<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_1.5493bdd6.png">
+<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_2.34ca3d94.png">
+<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_3.620300fc.png">
+<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_4.3502dae4.png">
+<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_5.0c7a3dd3.png">
+<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_6.f80f4749.png">
+<meta property="article:published_time" content="2023-11-13T12:39:29.000Z">
+<meta property="article:modified_time" content="2023-11-13T12:42:08.649Z">
 <meta property="article:author" content="MaxwellWave">
-<meta property="article:tag" content="verilog">
+<meta property="article:tag" content="Verilog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/11/13/13-%E6%9F%A5%E6%89%BE%E9%A6%961%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/image_1.c8dbad34.png">
+<meta name="twitter:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_1.5493bdd6.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -119,7 +122,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(14)</small>
+                <small>(15)</small>
             
         </div>
     </li>
@@ -130,7 +133,7 @@
                     <div data-rel="IC">
                         
                         IC
-                        <small>(3)</small>
+                        <small>(4)</small>
                         
                     </div>
                     
@@ -207,8 +210,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="14">
-<input type="hidden" id="yelog_site_word_count" value="25.4k">
+<input type="hidden" id="yelog_site_posts_number" value="15">
+<input type="hidden" id="yelog_site_word_count" value="28.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -294,6 +297,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Verilog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>vivado</a>
             </li>
         
@@ -311,6 +318,15 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 IC "
+           href="/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/"
+           data-tag="Verilog"
+           data-author="" >
+            <span class="post-title" title="log函数的Verilog实现">log函数的Verilog实现</span>
+            <span class="post-date" title="2023-11-13 20:39:29">2023/11/13</span>
+        </a>
         
         
         <a  class="全部文章 Tools "

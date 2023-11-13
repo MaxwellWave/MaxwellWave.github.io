@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>单if语句、多if语句及case语句 | MaxwellWave</title>
-  <meta name="keywords" content=" verilog , design ">
-  <meta name="description" content="单if语句、多if语句及case语句 | MaxwellWave">
+  <title>log函数的Verilog实现 | MaxwellWave</title>
+  <meta name="keywords" content=" Verilog ">
+  <meta name="description" content="log函数的Verilog实现 | MaxwellWave">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="0 前言log函数在无线通信中经常会用到，但是因为其涉及浮点数，而在Verilog中要实现浮点数就必须进行定点数量化，否则的话在硬件上无法实现。 1 理论基础 2 Verilog实现方法根据上一小结中可以知道对于任意的log函数都可以在log2的基础上通过换底公式实现，故而在Verilog中可以通过实现log2函数，并封装成一个单独的模块，在实现任意log函数的时候，只需要通过调用此模块即可。 根">
 <meta property="og:type" content="article">
@@ -472,9 +472,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-3-单-多if及case语句" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-15-log函数的Verilog实现" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">单if语句、多if语句及case语句</h1>
+        <h1 class="article-title">log函数的Verilog实现</h1>
     
     <div class="article-meta">
         
@@ -492,21 +492,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">verilog</a>
-            
-            <a class="color2">design</a>
+            <a class="color3">Verilog</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-09-02 09:30:49'>2022-09-01 09:29</time>
+            Created At : <time class="date" title='Updated At: 2023-11-13 20:42:08'>2023-11-13 20:39</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:2.3k</span>
+        <span>Count:3.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -525,7 +523,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5%E8%AF%B4%E6%98%8E"><span class="toc-text">条件分支语句说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E5%89%8D%E8%A8%80"><span class="toc-text">0 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8D%95if%E8%AF%AD%E5%8F%A5"><span class="toc-text">1 单if语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%8D%95if%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8A%E7%94%B5%E8%B7%AF"><span class="toc-text">1.1 单if语句的优先级及电路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-if-else%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%AF%B9%E7%94%B5%E8%B7%AF%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">1.2 if-else语句的优先级对电路的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-if-else%E8%AF%AD%E5%8F%A5%E5%AF%B9%E7%94%B5%E8%B7%AF%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-text">1.3 if-else语句对电路的优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A4%9Aif%E8%AF%AD%E5%8F%A5"><span class="toc-text">2 多if语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%A4%9Aif%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8A%E7%94%B5%E8%B7%AF"><span class="toc-text">2.1 多if语句的优先级及电路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%BD%93%E5%A4%9Aif%E8%AF%AD%E5%8F%A5%E5%9C%A8%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF%E4%B8%AD%E6%97%B6%E7%9A%84%E7%94%B5%E8%B7%AF"><span class="toc-text">2.2 当多if语句在时序电路中时的电路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%A4%9Aif%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">2.3 多if语句的应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-case%E8%AF%AD%E5%8F%A5"><span class="toc-text">3 case语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-case%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%8F%8A%E7%94%B5%E8%B7%AF"><span class="toc-text">3.1 case语句的优先级及电路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-case%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">3.2 case语句的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-casez%E4%B8%8Ecasex%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-text">3.3 casez与casex的用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-full-case%E5%92%8Cparallel-Case-%E7%BB%BC%E5%90%88%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="toc-text">3.4  full-case和parallel-Case 综合器指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E5%89%8D%E8%A8%80"><span class="toc-text">0 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-text">1 理论基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Verilog%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-text">2 Verilog实现方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B0%8F%E6%95%B0%E6%9F%A5%E6%89%BE%E8%A1%A8%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-text">3 小数查找表的建立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Verilog%E5%AE%9E%E7%8E%B0"><span class="toc-text">4 Verilog实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BB%BF%E7%9C%9F%E4%B8%8E%E5%88%86%E6%9E%90"><span class="toc-text">5 仿真与分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E6%80%9D%E8%80%83"><span class="toc-text">6思考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">7 参考资料</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -541,181 +539,142 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="条件分支语句说明"><a href="#条件分支语句说明" class="headerlink" title="条件分支语句说明"></a>条件分支语句说明</h1><h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0 前言"></a>0 前言</h2><p>笔者接触IC&amp;FPGA相关知识将近一年了，在写Verilog代码的时候始终无法体会到知乎上众多大佬所说的<strong>心中有电路</strong>的境界，近来在学习中国大学MOOC课程<a target="_blank" rel="noopener" href="https://www.icourse163.org/learn/SWJTU-1207492806#/learn/announce">《芯动力——硬件加速设计课程》</a>中关于条件分支语句部分。通过实验测试后，感觉能够稍微体会到写出来的代码会综合成何种电路，故写下此文用已记录。</p>
-<p>Verilog的条件分支语句有三种： <strong>单if语句、多if语句、case语句</strong></p>
-<h2 id="1-单if语句"><a href="#1-单if语句" class="headerlink" title="1 单if语句"></a>1 单if语句</h2><h3 id="1-1-单if语句的优先级及电路"><a href="#1-1-单if语句的优先级及电路" class="headerlink" title="1.1 单if语句的优先级及电路"></a>1.1 单if语句的优先级及电路</h3><p>单if语句通常会被逻辑综合成多个<strong>二选一的选择器</strong>组合而成，其具有隐含的优先级，优先级由上往下，<strong>只能在initial和always语句中使用</strong>。</p>
-<p>故对于if-else语句结构都是通过二选一的数据选择器搭建而来</p>
-<pre><code class="verilog">always@(a or b or c or d or sel0 or sel1 or sel2 or sel3)
-    begin
-        if(sel3)
-            z	=	d;
-        else if(sel2)
-            z	=	c;
-        else if(sel1)
-            z	=	b;
-        else if(sel0)
-            z	=	a;
-        else
-            z	=	0;
-    end
-</code></pre>
-<p>以上述代码为例，其描述的电路为</p>
-<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/%E5%8D%95if%E8%AF%AD%E5%8F%A5.png"><br>其中d具由最高优先级依次递减，a的优先级最低。</p>
-<p>vivado综合出来的电路如下图所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/%E5%8D%95if_vivado.png"><br>综合出来的电路与我们心中的电路一致。</p>
-<h3 id="1-2-if-else语句的优先级对电路的影响"><a href="#1-2-if-else语句的优先级对电路的影响" class="headerlink" title="1.2 if-else语句的优先级对电路的影响"></a>1.2 if-else语句的优先级对电路的影响</h3><p>以一个简单的计数器电路为例</p>
-<pre><code class="verilog">//正确示例
-always@(posedge clk or negedge rst_n)
-    begin
-        if(!rst_n)
-            cnt &lt;=  4&#39;d0;
-        else if(cnt == 4&#39;d20 &amp;&amp; flag == 1&#39;b1)
-            cnt &lt;=  4&#39;d0;
-        else if(flag == 1&#39;b1)
-            cnt &lt;=  cnt + 1;
-        else
-            cnt &lt;=  cnt;
-    end
-
-//错误示例
-always@(posedge clk or negedge rst_n)
-    begin
-        if(!rst_n)
-            cnt &lt;=  4&#39;d0;
-        else if(flag == 1&#39;b1)
-            cnt &lt;=  cnt + 1;
-        else if(cnt == 4&#39;d20 &amp;&amp; flag == 1&#39;b1)
-            cnt &lt;=  4&#39;d0;
-        else
-            cnt &lt;=  cnt;
-    end    
-</code></pre>
-<p>上例代码中，正确示例<code>cnt</code>在<code>flag</code>为高时开始计数，当计数到20时会归零后重新计数；而错误示例由于<code>cnt+1</code>的优先级高于清零的优先级，所以错误示例中<code>cnt</code>会一直加1且不会清零</p>
-<h3 id="1-3-if-else语句对电路的优化"><a href="#1-3-if-else语句对电路的优化" class="headerlink" title="1.3 if-else语句对电路的优化"></a>1.3 if-else语句对电路的优化</h3><p>在设计中需要需求进行分析，采用<code>if-else</code>语句映射的硬件结构，合理设计。</p>
-<p>此时需要你设计一个电路，当<code>flag=1</code>时<code>value=A+B</code>,否则<code>value=C+D</code>。我们应该如何进行设计？</p>
-<p>笔者的第一反应是使用一个二选一的选择器进行实现</p>
-<pre><code class="verilog">if(flag)
-    value   =   A + B;
-else
-    value   =   C + D;
-</code></pre>
-<p>有了之前的基础，我们可以很容易的画出此段代码描绘的电路<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/example1.png"><br>但是由于加法器会比选择器复杂的多，所需要的面积也更大，故可使用如下代码重构<code>if-else</code>映射的硬件结构</p>
-<pre><code class="verilog">if(flag)
-    begin
-        op1 = A;
-        op2 = B;
-    end
-else
-    begin
-        op1 = C;
-        op2 = D;
-    end
-
-assign  value = op1 + op2; 
-</code></pre>
-<p>此段代码描绘的电路如下图所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/example2.png"><br>该方法减少了一个加法器，使得电路的面积得以减少，但是控制通道信号flag的延迟却从一个加法器变成了一个加法器和数据选择器之后，如果<code>flag</code>信号到来的比较晚，则此电路的性能就会比前一种电路的性能更差。<br>故需要根据设计的目标小心设计：选择<strong>先“加”后“选”<strong>还是</strong>先“选”后“加”</strong>。</p>
-<h2 id="2-多if语句"><a href="#2-多if语句" class="headerlink" title="2 多if语句"></a>2 多if语句</h2><h3 id="2-1-多if语句的优先级及电路"><a href="#2-1-多if语句的优先级及电路" class="headerlink" title="2.1 多if语句的优先级及电路"></a>2.1 多if语句的优先级及电路</h3><p>多if语句与单if语句类似，具有优先级，且消耗二选一组合逻辑器件。与单if语句不同的是其最高优先级给到最迟到达的信号。以下述代码为例</p>
-<pre><code class="verilog">always@(a or b or c or d or sel0 or sel1 or sel2 or sel3)
-    begin
-        z = 0;  //当所有条件不符时z=0；不加则会生成latch
-        if(sel0)
-            z	=	a;
-        if(sel1)
-            z	=	b;
-        if(sel2)
-            z	=	c;
-        if(sel3)
-            z	=	d;
-    end	
-</code></pre>
-<p><code>alwsys</code>语句中描述组合逻辑电路使用阻塞赋值，其内部语句顺序执行，故其最高优先级是<code>sel3</code>决定的<code>d</code>，最低优先级是<code>sel0</code>决定的<code>a</code>。故而可以画出此段代码描述的电路，因调整了优先级顺序，故于上文中单if语句的电路一致。<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/1.png"></p>
-<p>与vivado综合电路一致</p>
-<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/2.png"> </p>
-<h3 id="2-2-当多if语句在时序电路中时的电路"><a href="#2-2-当多if语句在时序电路中时的电路" class="headerlink" title="2.2 当多if语句在时序电路中时的电路"></a>2.2 当多if语句在时序电路中时的电路</h3><p>我们将上述代码修改为如下代码描述的时序逻辑电路</p>
-<pre><code class="verilog">always@(posedge clk)
-    begin
-        z &lt;= 0;
-        if(sel0)
-            z	&lt;=	a;
-        if(sel1)
-            z	&lt;=	b;
-        if(sel2)
-            z	&lt;=	c;
-        if(sel3)
-            z	&lt;=	d;
-    end	
-</code></pre>
-<p>首先我们要知道在时序逻辑电路中使用非阻塞赋值，并且在always语句块结束时将右端表达式的值赋值给左端。我们可以推断出上述代码描述时序电路的优先级与前面的组合逻辑电路一致，不同的地方在于输出端口加了一个触发器，故而我们可以画出其电路<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/3.png">  </p>
-<p>与vivado综合电路一致</p>
-<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/4.png">   </p>
-<h3 id="2-3-多if语句的应用场景"><a href="#2-3-多if语句的应用场景" class="headerlink" title="2.3 多if语句的应用场景"></a>2.3 多if语句的应用场景</h3><p>若某些设计中，有些信号要求先到达(如关键便能信号、选择信号等)，而有些信号需要后到达(如慢速信号、有效时间较长的信号等)，此时则需要使用<code>if..if...</code>结构。然而其实此类场合也可以选择使用<code>if-else</code>,故在设计过程中尽可能<strong>避免使用<code>if..if...</code>结构</strong>。</p>
-<h2 id="3-case语句"><a href="#3-case语句" class="headerlink" title="3 case语句"></a>3 case语句</h2><h3 id="3-1-case语句的优先级及电路"><a href="#3-1-case语句的优先级及电路" class="headerlink" title="3.1 case语句的优先级及电路"></a>3.1 case语句的优先级及电路</h3><p><strong><code>case</code>语句当条件互斥时是没有优先级，但是条件选项不要求互斥。虽然这些条件选项是并发比较的，但执行效果是谁在前且条件为真谁被执行</strong></p>
-<p><code>case</code>语句描述的电路是一个多路选择器。</p>
-<pre><code class="verilog">always@(a or b or c or d or sel0 or sel1)
-    begin
-        case(&#123;sel0,sel1&#125;)
-            2&#39;b00: z = d;
-            2&#39;b01: z = c;
-            2&#39;b10: z = b;
-            2&#39;b11: z = a;
-            default: z =0;
-        endcase
-    end
-</code></pre>
-<p>以上述代码为例其描述的电路是一个<strong>条件选项互斥</strong>的四选一数据选择器，电路如下所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/5.png"> </p>
-<p>与vivado综合电路一致</p>
-<p><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/6.png">   </p>
-<p>当将条件选项修改成非互斥时，我们可以看看综合出来的电路是怎样的</p>
-<pre><code class="verilog">always@(a or b or c or d or sel0 or sel1)
-    begin
-        case(&#123;sel0,sel1&#125;)
-            2&#39;b00: z = d;
-            2&#39;b01: z = c;
-            2&#39;b01: z = b;
-            2&#39;b11: z = a;
-            default: z =0;
-        endcase
-    end
-</code></pre>
-<p>如上述代码，笔者将第三个条件选项修改成与第二个条件选项一致，通过vivado综合出来的电路如下图所示<br><img src="/2022/09/01/3-%E5%8D%95-%E5%A4%9Aif%E5%8F%8Acase%E8%AF%AD%E5%8F%A5/7.png"><br>可以看到此时<code>b</code>是永远无法赋值到<code>z</code>的，同时由于<code>&#123;sel0,sel1&#125;</code>可表示4种情况，而<code>case</code>中的条件选项未完备，故而会出现一个<code>default</code>接口，将<code>z</code>置零。</p>
-<h3 id="3-2-case语句的应用场景"><a href="#3-2-case语句的应用场景" class="headerlink" title="3.2 case语句的应用场景"></a>3.2 case语句的应用场景</h3><p>相对于<code>if-else</code>语句只有两个分支而言，<code>case</code>语句是一种可实现多路分支选择控制的语句，比<code>if-else</code>语句更为直观和方便。一般的，<code>case</code>语句多用于多见译码电路的设计，如描述<strong>译码器、数据选择器、状态机及微处理器的指令译码</strong>等。</p>
-<h3 id="3-3-casez与casex的用法"><a href="#3-3-casez与casex的用法" class="headerlink" title="3.3 casez与casex的用法"></a>3.3 casez与casex的用法</h3><p><strong>用前提醒： casez与casex都不可综合，多用于仿真。</strong></p>
-<p>casex、 casez 语句是 case 语句的变形，用来表示条件选项中的无关项。</p>
-<p>casex 用 “x” 来表示无关值，casez 用问号 “?” 来表示无关值。</p>
-<p>两者的实现的功能是完全一致的，语法与 case 语句也完全一致。</p>
-<h3 id="3-4-full-case和parallel-Case-综合器指令"><a href="#3-4-full-case和parallel-Case-综合器指令" class="headerlink" title="3.4  full-case和parallel-Case 综合器指令"></a>3.4  full-case和parallel-Case 综合器指令</h3><p>在理论上使用<code>case</code>语句对于不符合条件选项的我们可以使用<code>default</code>，但是实际应用中可能存在没有<code>default</code>的情况存在。</p>
-<p>以交通控制红绿灯为例，只有红、绿、黄三种情况，不会出现第四种，故使用2bit就可表示所有情况，但会多出一种情况，综合的时候就会产生<code>latch</code>。故可使用<code>full-case</code>告诉综合器，当前<code>case</code>结构所列条件已完备，从而消除<code>latch</code>。</p>
+        <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0 前言"></a>0 前言</h2><p><code>log</code>函数在无线通信中经常会用到，但是因为其涉及浮点数，而在Verilog中要实现浮点数就必须进行定点数量化，否则的话在硬件上无法实现。</p>
+<h2 id="1-理论基础"><a href="#1-理论基础" class="headerlink" title="1 理论基础"></a>1 理论基础</h2><p><img src="/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_1.5493bdd6.png"></p>
+<h2 id="2-Verilog实现方法"><a href="#2-Verilog实现方法" class="headerlink" title="2 Verilog实现方法"></a>2 Verilog实现方法</h2><p>根据上一小结中可以知道对于任意的log函数都可以在log2的基础上通过换底公式实现，故而在Verilog中可以通过实现log2函数，并封装成一个单独的模块，在实现任意log函数的时候，只需要通过调用此模块即可。</p>
+<p>根据上述的公式推理，log2函数的实现可以拆分在整数部分和小数部分，整数部分即得到输入数据A中最高bit位的位置k（二进制格式数据），小数部分则可根据精度的要求，采用查表的方式进行实现。具体实现可拆分成如下步骤</p>
+<p>第一步：整数位计算，查找输入数据不为0的最高bit位k，即与博主之前写的查找输入数据首1的需求一致，故而实现方法可参考此文<a target="_blank" rel="noopener" href="https://maxwellwave.github.io/2023/11/13/13-%E6%9F%A5%E6%89%BE%E9%A6%961%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/">查找首1的三种方法 | MaxwellWave</a></p>
+<p>第二步：小数位计算，从k-1bit位开始，依次向后取m个bit数据，m的大小影响计算精度，m越大，精度越高。最终得到mbit的数据，将该数据作为查找表的索引即地址，查询查找表的数据即小数部分F。查找表中的具体值可以根据精度m使用matlab依次遍历打印，查找表的深度即位2^m，位宽根据定点小数位决定。</p>
 <blockquote>
-<p>PS:其实也可以使用<code>default</code>,既然实际上不可能出现满足<code>default</code>条件的情况，那么使用了也不会导致系统输出失常，也保证不会出现<code>latch</code></p>
+<p>从k-1位开始是因为在使用matlab打印小数数据的时候在内部将A的高位化简为了1，即小数值得计算公式为<code>fra=log2(1+(0:2^m-1)/2^m)</code></p>
 </blockquote>
-<pre><code class="verilog">//会出现latch的情况
-always@(*)
-    case(sel) 
-        2&#39;b00:  y = a;  //红
-        2&#39;b01:  y = b;  //绿
-        2&#39;b10:  y = c;  //蓝
-    endcase
-endmodule
+<p>第三步：定点运算，如果结果定点为Fix16_8，即输入数据16bit，前8bit为整数位，后8bit为小数位，即查找表中的位宽深度为8bit。当得到整数k时，可将k左移8bit拓展成16bit的数据得到输出数据的整数部分，再与从ROM中读取的小数部分数据相加即可得到最终的log2函数的结果。</p>
+<blockquote>
+<p>定点数和浮点数的区别（<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/410047526">计算机中的定点数与浮点数</a>）</p>
+<ul>
+<li>定点数：小数点的位置在计算机的存储是约定好固定的，一个小数的整数部分和小数部分分别转换为二进制表示。如十进制的25.125，整数部分25用二进制表示为：11001；小数部分0.125使用二进制表示为.001；故而两者合起来为11001.001，而实际上计算机中不存储小数点，故而25.125的二进制为11001001，因为已经约定好小数位是低三位，所以这个8bit数据的前5bit就是整数，后3bit就是小数。如果小数位数的精度为3bit，那么小数位最多可以表示的范围为<code>0~0.875</code>。</li>
+<li>浮点数：计算机中使用浮点数表示小数类似于以前数学中用科学计数法表示较大的数。例如352.47&#x3D;3.5247x10的2次方。178.125转化为二进制为 10110010.001，又可表示为：1.0110010001 乘以 2的111次方（111是7的二进制表示）。其中，<ul>
+<li>10110010001 这部分被称作尾数(M)</li>
+<li>111这部分被称作阶码（P）</li>
+<li>正负被称作数符（S）: 0表示正数 ， 1表示负数。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>那么一个浮点数可以使用三部分表示：数符（S）,阶码（P）,尾数（M）。</p>
+</blockquote>
+<blockquote>
+<p><img src="/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_2.34ca3d94.png"></p>
+</blockquote>
+<h2 id="3-小数查找表的建立"><a href="#3-小数查找表的建立" class="headerlink" title="3 小数查找表的建立"></a>3 小数查找表的建立</h2><p>采用matlab进行定点数的计算，具体代码如下</p>
+<pre><code class="matlab">m = 5;
+a = log2(1+(0:2^m-1)/2^m);
 
-//不出现latch的情况
-always@(*)
-    case(sel) //synopsys full_case
-        2&#39;b00:  y = a;
-        2&#39;b01:  y = b;
-        2&#39;b10:  y = c;
-    endcase
-endmodule
+fid = fopen(&#39;a.txt&#39;,&#39;wt&#39;);
+a_fix = fi(a,0,5,5)*2^m;
+b = a_fix;
+fprintf(fid,&#39;data &lt;= 5&#39;&#39;d%d;\n&#39;,b);
+fclose(fid);
+</code></pre>
+<blockquote>
+<ul>
+<li>m为小数部分的定点位宽</li>
+<li><code>fi</code>为matlab中的定点化函数，fi(data,s,w,f)。data为需要定点的浮点数，s为有符号和无符号数标志，w为数据位宽，f为定点小数的精度</li>
+</ul>
+</blockquote>
+<h2 id="4-Verilog实现"><a href="#4-Verilog实现" class="headerlink" title="4 Verilog实现"></a>4 Verilog实现</h2><p>当输入数据位宽为32bit时，整数部分就可以用5bit表示，如果输出数据位宽限定为10bit，那么小数数据位宽即可定为5bit。故可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/u014035968/article/details/132731081">Verilog实现对数运算log_verilog 对数运算-CSDN博客</a>进行如下代码设计</p>
+<pre><code class="verilog">module log # (
+parameter O_WIDTH_F = 5, //output fraction width
+    parameter              PRECISION_W  = 5,
+parameter I_WIDTH = 32, //input width
+parameter O_WIDTH = O_WIDTH_F + $clog2(I_WIDTH) //output width
+)(
+ input                       clk,
+ input [I_WIDTH-1 : 0]       i_data,
+ output reg [O_WIDTH-1 : 0]  o_data
+);
 
-//不出现latch的情况
-always@(*)
-    case(sel) 
-        2&#39;b00:  y = a;  //红
-        2&#39;b01:  y = b;  //绿
-        2&#39;b10:  y = c;  //蓝
-        default: y = 0; //实际中不会出现此条件
-    endcase
+    
+ wire  [I_WIDTH-1 : 0]       r_i_data;
+    reg [$clog2(I_WIDTH)-1 : 0]  int_d, int_d_d0;
+    reg [I_WIDTH-1     : 0]  fra_index;
+
+    assign  r_i_data = i_data;
+
+always @ (posedge clk) begin
+ casez(r_i_data) 
+        &#123;&#123;00&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-01)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 01; fra_index &lt;= r_i_data &lt;&lt; 01; end
+        &#123;&#123;01&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-02)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 02; fra_index &lt;= r_i_data &lt;&lt; 02; end 
+        &#123;&#123;02&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-03)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 03; fra_index &lt;= r_i_data &lt;&lt; 03; end 
+        &#123;&#123;03&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-04)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 04; fra_index &lt;= r_i_data &lt;&lt; 04; end 
+        &#123;&#123;04&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-05)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 05; fra_index &lt;= r_i_data &lt;&lt; 05; end 
+        &#123;&#123;05&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-06)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 06; fra_index &lt;= r_i_data &lt;&lt; 06; end 
+        &#123;&#123;06&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-07)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 07; fra_index &lt;= r_i_data &lt;&lt; 07; end 
+        &#123;&#123;07&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-08)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 08; fra_index &lt;= r_i_data &lt;&lt; 08; end 
+        &#123;&#123;08&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-09)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 09; fra_index &lt;= r_i_data &lt;&lt; 09; end 
+        &#123;&#123;09&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-10)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 10; fra_index &lt;= r_i_data &lt;&lt; 10; end 
+        &#123;&#123;10&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-11)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 11; fra_index &lt;= r_i_data &lt;&lt; 11; end 
+        &#123;&#123;11&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-12)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 12; fra_index &lt;= r_i_data &lt;&lt; 12; end 
+        &#123;&#123;12&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-13)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 13; fra_index &lt;= r_i_data &lt;&lt; 13; end 
+        &#123;&#123;13&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-14)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 14; fra_index &lt;= r_i_data &lt;&lt; 14; end 
+        &#123;&#123;14&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-15)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 15; fra_index &lt;= r_i_data &lt;&lt; 15; end 
+        &#123;&#123;15&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-16)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 16; fra_index &lt;= r_i_data &lt;&lt; 16; end 
+        &#123;&#123;16&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-17)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 17; fra_index &lt;= r_i_data &lt;&lt; 17; end 
+        &#123;&#123;17&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-18)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 18; fra_index &lt;= r_i_data &lt;&lt; 18; end 
+        &#123;&#123;18&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-19)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 19; fra_index &lt;= r_i_data &lt;&lt; 19; end 
+        &#123;&#123;19&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-20)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 20; fra_index &lt;= r_i_data &lt;&lt; 20; end 
+        &#123;&#123;20&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-21)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 21; fra_index &lt;= r_i_data &lt;&lt; 21; end 
+        &#123;&#123;21&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-22)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 22; fra_index &lt;= r_i_data &lt;&lt; 22; end 
+        &#123;&#123;22&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-23)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 23; fra_index &lt;= r_i_data &lt;&lt; 23; end 
+        &#123;&#123;23&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-24)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 24; fra_index &lt;= r_i_data &lt;&lt; 24; end 
+        &#123;&#123;24&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-25)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 25; fra_index &lt;= r_i_data &lt;&lt; 25; end 
+        &#123;&#123;25&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-26)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 26; fra_index &lt;= r_i_data &lt;&lt; 26; end 
+        &#123;&#123;26&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-27)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 27; fra_index &lt;= r_i_data &lt;&lt; 27; end 
+        &#123;&#123;27&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-28)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 28; fra_index &lt;= r_i_data &lt;&lt; 28; end 
+        &#123;&#123;28&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-29)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 29; fra_index &lt;= r_i_data &lt;&lt; 29; end 
+        &#123;&#123;29&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-30)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 30; fra_index &lt;= r_i_data &lt;&lt; 30; end 
+        &#123;&#123;30&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-31)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 31; fra_index &lt;= r_i_data &lt;&lt; 31; end 
+        &#123;&#123;31&#123;1'b0&#125;&#125;,1&#39;b1,&#123;(I_WIDTH-32)&#123;1&#39;b?&#125;&#125;&#125;: begin int_d &lt;= I_WIDTH - 32; fra_index &lt;= &#123;(I_WIDTH)&#123;1&#39;b0&#125;&#125;; end 
+        default:begin int_d &lt;= &#123;$clog2(I_WIDTH)&#123;1&#39;b0&#125;&#125;; fra_index &lt;= &#123;PRECISION_W&#123;1&#39;b0&#125;&#125;;end
+ endcase
+end
+
+        wire [O_WIDTH_F -1 : 0] fra_data;        
+
+fra_rom fra_rom_i
+(
+/*    input        */   .clk    (clk),
+/*    input        */   .en     (1&#39;b1),
+/*    input   [4:0]*/   .addr   (fra_index[I_WIDTH-1:PRECISION_W]),
+/*    output  [4:0]*/   .dout   (fra_data) 
+);
+
+always@(posedge clk) begin
+    int_d_d0    &lt;=  int_d;
+end
+
+always@(posedge clk) begin
+    o_data  &lt;=  &#123;int_d_d0, fra_data&#125;;
+end
+
 endmodule
 </code></pre>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1]<a target="_blank" rel="noopener" href="https://www.icourse163.org/learn/SWJTU-1207492806#/learn/announce">《芯动力——硬件加速设计课程》</a><br>[2] <a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/verilog-case.html">Verilog 多路分支语句 | 菜鸟教程</a><br>[3] 蔡觉平, 何小川, 李逍楠. Verilog HDL数字集成电路设计原理与应用[M]. 西安电子科技大学出版社, 2011.</p>
+<blockquote>
+<p>疑问：在上述代码中，小数索引的截取是根据已知首1位置然后将输入数据左移相应位置后再截取对应精度的高位数据（即把精度数据移位到高位）作为索引进行查表。此处存在一个问题是，如果当首1的位置小于精度，那么此时将输入数据左移就会导致高位的数据可能是补0后的数据，而非实际上的值。如：如果输入数据为3，首1的位置应该是在<code>1</code>处，此时如果将数据左移31位，那么截取出来的数据应该是5’b10000，而不是实际的<code>1</code>，故而对实际的运算结果造成错误。在<a target="_blank" rel="noopener" href="https://blog.csdn.net/u014035968/article/details/132731081">Verilog实现对数运算log_verilog 对数运算-CSDN博客</a>采用了一种拼接的方法来避免此问题，但是无法通过VCS编译，因为位拼接符不支持负数。如果已知精度的话，把相应的精度<code>case</code>选项不进行移位即可。即使不采取此措施，也只是会对精度造成比较小的影响。<br>答：上述理解是错误的，依然以输入数据为3为例，如果按照上述说法，小数位的值仅为<code>1</code>，如果不进行移位拓展送入到小数查找表中，那么查找到的值就为ROM中<code>地址1</code>的值。但是根据我们上述matlab打印的小数来看，<code>地址1</code>存储的实际上是<code>log2(1+1/2^5)</code>的定点化数，而实际上<code>十进制3</code>定点化的值应该是<code>log2(1+1/2)</code>，因为在matlab打印的时候为了能够遍历所有的数，故而除了<code>2^5</code>，故而对于输入数据3的话，定点数的计算公式应该为<code>log2(1+1x2^4/2^5)</code>，对应ROM中的地址为<code>16</code>。实际上也就是设计中的向左移位5bit，即小数位必须保证同比例的放缩。<br><img src="/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_3.620300fc.png"></p>
+</blockquote>
+<h2 id="5-仿真与分析"><a href="#5-仿真与分析" class="headerlink" title="5 仿真与分析"></a>5 仿真与分析</h2><p>上述代码实际仿真结果如下图所示，可以看到符合log函数的曲线图</p>
+<p><img src="/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_4.3502dae4.png"></p>
+<p>为了可以更加清楚的知道硬件实现与实际上的计算误差有多少，本文通过对硬件的数据进行捕获,然后通过matlab与实际的log2的函数进行误差对比分析。实际效果如下，可见误差范围在-0.06~0.02之间。</p>
+<p><img src="/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_5.0c7a3dd3.png"></p>
+<blockquote>
+<p>误差百分比是指相对误差的dB比例，即10lg(误差值&#x2F;准确值)</p>
+</blockquote>
+<h2 id="6思考"><a href="#6思考" class="headerlink" title="6思考"></a>6思考</h2><p>上述的实例只是针对输入数据为整数进行处理的，那如果输入的数据也是经过定点的小数是否可行？如果是小于1的小数又该如何处理？</p>
+<p>在实际应用中，可能A为定点小数，得到的结果可能为正也可能为负。此时在设计时需要将A做一个变式，即可转化为整数的log计算和加法。如定义B为Fix16_8的无符号定点数（分辨率为0.00390625），则</p>
+<p><img src="/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_6.f80f4749.png"></p>
+<p>此时，定点小数的对数运算就转换为定点整数的对数运算了</p>
+<h2 id="7-参考资料"><a href="#7-参考资料" class="headerlink" title="7 参考资料"></a>7 参考资料</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014035968/article/details/132731081">Verilog实现对数运算log_verilog 对数运算-CSDN博客</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以通过知乎私信，也可以邮件至 maxwellwave@foxmail.com </span>
