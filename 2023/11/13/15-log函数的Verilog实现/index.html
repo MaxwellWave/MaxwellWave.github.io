@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_5.0c7a3dd3.png">
 <meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_6.f80f4749.png">
 <meta property="article:published_time" content="2023-11-13T12:39:29.000Z">
-<meta property="article:modified_time" content="2023-11-13T12:42:08.649Z">
+<meta property="article:modified_time" content="2023-11-13T12:49:52.833Z">
 <meta property="article:author" content="MaxwellWave">
 <meta property="article:tag" content="Verilog">
 <meta name="twitter:card" content="summary">
@@ -499,7 +499,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-11-13 20:42:08'>2023-11-13 20:39</time>
+            Created At : <time class="date" title='Updated At: 2023-11-13 20:49:52'>2023-11-13 20:39</time>
         
     </div>
     <div class="article-meta">
@@ -554,18 +554,16 @@
 <ul>
 <li>定点数：小数点的位置在计算机的存储是约定好固定的，一个小数的整数部分和小数部分分别转换为二进制表示。如十进制的25.125，整数部分25用二进制表示为：11001；小数部分0.125使用二进制表示为.001；故而两者合起来为11001.001，而实际上计算机中不存储小数点，故而25.125的二进制为11001001，因为已经约定好小数位是低三位，所以这个8bit数据的前5bit就是整数，后3bit就是小数。如果小数位数的精度为3bit，那么小数位最多可以表示的范围为<code>0~0.875</code>。</li>
 <li>浮点数：计算机中使用浮点数表示小数类似于以前数学中用科学计数法表示较大的数。例如352.47&#x3D;3.5247x10的2次方。178.125转化为二进制为 10110010.001，又可表示为：1.0110010001 乘以 2的111次方（111是7的二进制表示）。其中，<ul>
-<li>10110010001 这部分被称作尾数(M)</li>
-<li>111这部分被称作阶码（P）</li>
-<li>正负被称作数符（S）: 0表示正数 ， 1表示负数。</li>
+<li><p>10110010001 这部分被称作尾数(M)</p>
+</li>
+<li><p>111这部分被称作阶码（P）</p>
+</li>
+<li><p>正负被称作数符（S）: 0表示正数 ， 1表示负数。</p>
+</li>
 </ul>
 </li>
 </ul>
-</blockquote>
-<blockquote>
-<p>那么一个浮点数可以使用三部分表示：数符（S）,阶码（P）,尾数（M）。</p>
-</blockquote>
-<blockquote>
-<p><img src="/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_2.34ca3d94.png"></p>
+<p>那么一个浮点数可以使用三部分表示：数符（S）,阶码（P）,尾数（M）。<br><img src="/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_2.34ca3d94.png"></p>
 </blockquote>
 <h2 id="3-小数查找表的建立"><a href="#3-小数查找表的建立" class="headerlink" title="3 小数查找表的建立"></a>3 小数查找表的建立</h2><p>采用matlab进行定点数的计算，具体代码如下</p>
 <pre><code class="matlab">m = 5;
