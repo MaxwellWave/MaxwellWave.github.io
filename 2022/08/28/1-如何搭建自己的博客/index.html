@@ -6,25 +6,21 @@
   <meta name="keywords" content=" blog ">
   <meta name="description" content="如何搭建自己的博客 | MaxwellWave">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="0 前言log函数在无线通信中经常会用到，但是因为其涉及浮点数，而在Verilog中要实现浮点数就必须进行定点数量化，否则的话在硬件上无法实现。 1 理论基础 2 Verilog实现方法根据上一小结中可以知道对于任意的log函数都可以在log2的基础上通过换底公式实现，故而在Verilog中可以通过实现log2函数，并封装成一个单独的模块，在实现任意log函数的时候，只需要通过调用此模块即可。 根">
+<meta name="description" content="在Verdi有时候我们需要对信号进行有符号数和无符号数的设置，此时可以选中需要设置的信号，右键由选择Set Notation，其有如图所示的四个选项  Unsigned一般为默认选项，表示无符号数，按照定义位宽的二进制位数表示。 Signed 2&#39;s Complement以补码的形式显示数据，最高位以符号的形式显示，如果为正数不显示，负数显示-号，故如果以二进制位数显示的话，其位宽会比定义">
 <meta property="og:type" content="article">
-<meta property="og:title" content="log函数的Verilog实现">
-<meta property="og:url" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:title" content="16-Verdi-显示有符号数">
+<meta property="og:url" content="http://example.com/2023/11/14/16-Verdi-%E6%98%BE%E7%A4%BA%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0/index.html">
 <meta property="og:site_name" content="MaxwellWave">
-<meta property="og:description" content="0 前言log函数在无线通信中经常会用到，但是因为其涉及浮点数，而在Verilog中要实现浮点数就必须进行定点数量化，否则的话在硬件上无法实现。 1 理论基础 2 Verilog实现方法根据上一小结中可以知道对于任意的log函数都可以在log2的基础上通过换底公式实现，故而在Verilog中可以通过实现log2函数，并封装成一个单独的模块，在实现任意log函数的时候，只需要通过调用此模块即可。 根">
+<meta property="og:description" content="在Verdi有时候我们需要对信号进行有符号数和无符号数的设置，此时可以选中需要设置的信号，右键由选择Set Notation，其有如图所示的四个选项  Unsigned一般为默认选项，表示无符号数，按照定义位宽的二进制位数表示。 Signed 2&#39;s Complement以补码的形式显示数据，最高位以符号的形式显示，如果为正数不显示，负数显示-号，故如果以二进制位数显示的话，其位宽会比定义">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_1.5493bdd6.png">
-<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_2.34ca3d94.png">
-<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_3.620300fc.png">
-<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_4.3502dae4.png">
-<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_5.0c7a3dd3.png">
-<meta property="og:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_6.f80f4749.png">
-<meta property="article:published_time" content="2023-11-13T12:39:29.000Z">
-<meta property="article:modified_time" content="2023-11-13T12:49:52.833Z">
+<meta property="og:image" content="http://example.com/2023/11/14/16-Verdi-%E6%98%BE%E7%A4%BA%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0/image_1.f2aad463.png">
+<meta property="article:published_time" content="2023-11-14T01:35:07.000Z">
+<meta property="article:modified_time" content="2023-11-14T01:36:07.149Z">
 <meta property="article:author" content="MaxwellWave">
-<meta property="article:tag" content="Verilog">
+<meta property="article:tag" content="EDA">
+<meta property="article:tag" content="Verdi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/11/13/15-log%E5%87%BD%E6%95%B0%E7%9A%84Verilog%E5%AE%9E%E7%8E%B0/image_1.5493bdd6.png">
+<meta name="twitter:image" content="http://example.com/2023/11/14/16-Verdi-%E6%98%BE%E7%A4%BA%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0/image_1.f2aad463.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -122,7 +118,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(15)</small>
+                <small>(16)</small>
             
         </div>
     </li>
@@ -175,7 +171,7 @@
                     <div data-rel="Tools">
                         
                         Tools
-                        <small>(4)</small>
+                        <small>(5)</small>
                         
                     </div>
                     
@@ -210,8 +206,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="15">
-<input type="hidden" id="yelog_site_word_count" value="28.6k">
+<input type="hidden" id="yelog_site_posts_number" value="16">
+<input type="hidden" id="yelog_site_word_count" value="28.9k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -269,6 +265,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>EDA</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>error</a>
             </li>
         
@@ -290,6 +290,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>ubuntu</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Verdi</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -318,6 +322,15 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 Tools "
+           href="/2023/11/14/16-Verdi-%E6%98%BE%E7%A4%BA%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0/"
+           data-tag="EDA,Verdi"
+           data-author="" >
+            <span class="post-title" title="16-Verdi-显示有符号数">16-Verdi-显示有符号数</span>
+            <span class="post-date" title="2023-11-14 09:35:07">2023/11/14</span>
+        </a>
         
         
         <a  class="全部文章 IC "
