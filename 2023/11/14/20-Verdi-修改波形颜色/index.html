@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MaxwellWave</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="MaxwellWave">
+  <title>Verdi-修改波形颜色 | MaxwellWave</title>
+  <meta name="keywords" content=" EDA , Verdi ">
+  <meta name="description" content="Verdi-修改波形颜色 | MaxwellWave">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="1 问题在使用verdi查看波形时发现位宽与define.v文件中的不一致，尽管在tb顶层中对define的路径进行了声明，VCS编译过程中没有产生错误，且不影响仿真的最终结果。但是在debug的时候进行分析的时候一旦没有位宽就无法顺利进行DEBUG。 2 原因与解决之所有产生此原因是由于vcs没有对define.v文件进行编译。解决此问题需要将define.v文件添加到filelist文件中的最">
 <meta property="og:type" content="article">
@@ -60,7 +60,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -519,12 +519,62 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-20-Verdi-修改波形颜色" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Welcome-to-MaxwellWave%E2%80%99s-blog"><span class="toc-text">Welcome to MaxwellWave’s blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2"><span class="toc-text">关于博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%90%8D%E7%A7%B0"><span class="toc-text">关于名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%B9%B3%E5%8F%B0"><span class="toc-text">关于平台</span></a></li></ol></li></ol>
+        <h1 class="article-title">Verdi-修改波形颜色</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Tools">Tools</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">EDA</a>
+            
+            <a class="color1">Verdi</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2023-11-14 11:19:22'>2023-11-14 11:17</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:427</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E5%89%8D%E8%A8%80"><span class="toc-text">0 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="toc-text">1 实现步骤</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -537,49 +587,62 @@
     }
 </style>
 </div>
-            <h1 id="Welcome-to-MaxwellWave’s-blog"><a href="#Welcome-to-MaxwellWave’s-blog" class="headerlink" title="Welcome to MaxwellWave’s blog"></a>Welcome to MaxwellWave’s blog</h1><h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p>本博客是博主MaxwellWave的个人网站，主要用来记录自己的学习过程，涉及数字IC、FPGA、Linux等方面的相<br>关知识。</p>
-<p>到目前为止已经记录了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<p>目前本站未开通评论功能，您可通过头像下方的知乎链接私信博主，也可以通过邮件<a href="mailto:&#109;&#97;&#x78;&#119;&#101;&#x6c;&#108;&#x77;&#x61;&#x76;&#101;&#x40;&#102;&#x6f;&#x78;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;">&#109;&#97;&#x78;&#119;&#101;&#x6c;&#108;&#x77;&#x61;&#x76;&#101;&#x40;&#102;&#x6f;&#x78;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;</a>联系</p>
-<h2 id="关于名称"><a href="#关于名称" class="headerlink" title="关于名称"></a>关于名称</h2><p>博主本科是学通信的，在学习理论知识的时候并没有直观地感受到麦克斯韦的强大，直到在大三的时候自己手动焊接一步一步做了一个收音机才深刻感受到电磁波的魅力，才知道除了我们肉眼可见的真实世界之外，物质还存在在一种新的形式——电磁波，故博主以麦克斯韦电磁波作为网站名称致敬，但由于英文 <strong>Maxwell Electromagnetic Waves</strong>太长，博主就将 <strong>Electromagnetic</strong>删除，这就有了本站名称的由来~</p>
-<h2 id="关于平台"><a href="#关于平台" class="headerlink" title="关于平台"></a>关于平台</h2><p>本站是通过 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，部署在 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>主题 <a target="_blank" rel="noopener" href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 原创作者叶落阁已经在github上开源，大家如有需要可自行前往下载</p>
-<p>本站主要功能：</p>
-<ul>
-<li><p>搜索支持文章标题、标签(#标签)、作者(@作者)</p>
-</li>
-<li><p>pad&#x2F;手机等移动端适配</p>
-</li>
-<li><p>页面全局快捷键 </p>
-<table>
-<thead>
-<tr>
-<th align="center">快捷键</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">s</td>
-<td align="center">打开&#x2F;取消全屏</td>
-</tr>
-<tr>
-<td align="center">w</td>
-<td align="center">打开&#x2F;关闭文章目录</td>
-</tr>
-<tr>
-<td align="center">i</td>
-<td align="center">获取搜索框焦点</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0 前言"></a>0 前言</h2><p>本文参考此博客复现而来 <a target="_blank" rel="noopener" href="https://asicwhale.github.io/2018/08/11/201808-2018-08-11-verdi-config-color/">verdi波形颜色的配置 | ASIC Notes</a></p>
+<p>常常要写文档时候需要Verdi的波形， 但是默认情况下是黑色背景， 不是很美观，比如下图：</p>
+<p><img src="/2023/11/14/20-Verdi-%E4%BF%AE%E6%94%B9%E6%B3%A2%E5%BD%A2%E9%A2%9C%E8%89%B2/image_1.9e2b2ac7.png"></p>
+<p>如何可以改变成白色背景， 黑色字体和波形， 这样就和文档的背景色， 前景色匹配了。</p>
+<h2 id="1-实现步骤"><a href="#1-实现步骤" class="headerlink" title="1 实现步骤"></a>1 实现步骤</h2><p>在<code>nWave</code>波形窗口中，点击<code>Tools &gt;- Perferences</code></p>
+<p><img src="/2023/11/14/20-Verdi-%E4%BF%AE%E6%94%B9%E6%B3%A2%E5%BD%A2%E9%A2%9C%E8%89%B2/image_2.a7b9cd0d.png"></p>
+<p>进入到如下界面</p>
+<p><img src="/2023/11/14/20-Verdi-%E4%BF%AE%E6%94%B9%E6%B3%A2%E5%BD%A2%E9%A2%9C%E8%89%B2/image_3.2fb87e50.png"></p>
+<p>选择<code>Waveform &gt;- Color/Pattern &gt;- Waveform Pane Background</code>选项，颜色配置为白色</p>
+<p><img src="/2023/11/14/20-Verdi-%E4%BF%AE%E6%94%B9%E6%B3%A2%E5%BD%A2%E9%A2%9C%E8%89%B2/image_4.7ad548be.png"></p>
+<p>此时波形窗口中的颜色背景如下</p>
+<p><img src="/2023/11/14/20-Verdi-%E4%BF%AE%E6%94%B9%E6%B3%A2%E5%BD%A2%E9%A2%9C%E8%89%B2/image_5.163c89d0.png"></p>
+<p>同样在此窗口中选择<code>Waveform &gt;- Color/Pattern &gt;- Value Pane Background</code>选项，颜色配置为白色，此时波形窗口颜色背景如下</p>
+<p><img src="/2023/11/14/20-Verdi-%E4%BF%AE%E6%94%B9%E6%B3%A2%E5%BD%A2%E9%A2%9C%E8%89%B2/image_6.6b2c2c2d.png"></p>
+<p>此窗口中继续查找选择<code>Signal Pane Background</code>选项，颜色配置为白色，效果如下</p>
+<p><img src="/2023/11/14/20-Verdi-%E4%BF%AE%E6%94%B9%E6%B3%A2%E5%BD%A2%E9%A2%9C%E8%89%B2/image_7.065ad5f4.png"></p>
+<p>此窗口中继续查找选择<code>Signal Pane</code>选项，修改最左侧的信号字体颜色为黑色</p>
+<p>选择<code>Value Pane</code>选项，将信号跳变窗口数字颜色修改为黑色</p>
+<p>选择<code>Scalar Dense Block Color</code>和<code>Vector Dense Block Color</code>选项修改密集信号颜色为黑色</p>
+<p>选择<code>busSignalLayer</code>选项，修改总线信号为黑色</p>
+<p>选择<code>Ruler Background</code>选项，将标尺背景修改为白色</p>
+<p>选择<code>Ruler Foreground</code>选项，将标尺字体颜色修改为黑色</p>
+<p>选择<code>Waveform Pane</code>选项，将波形中的字体颜色修改为黑色</p>
+<p>选择<code>Waveform &gt;- Value_System &gt;- verilog_nc_</code>中的<code>0</code>和<code>1</code>（或者全选，只是0和1是最常见x的状态）设置为黑色</p>
+<p><img src="/2023/11/14/20-Verdi-%E4%BF%AE%E6%94%B9%E6%B3%A2%E5%BD%A2%E9%A2%9C%E8%89%B2/image_8.11dc4b1c.png"></p>
+<p>最终效果如下图所示</p>
+<p><img src="/2023/11/14/20-Verdi-%E4%BF%AE%E6%94%B9%E6%B3%A2%E5%BD%A2%E9%A2%9C%E8%89%B2/image_9.88f3626b.png"></p>
+<p>此时可以看到最左侧还有几个小图标，可通过如下操作去除</p>
+<p><img src="/2023/11/14/20-Verdi-%E4%BF%AE%E6%94%B9%E6%B3%A2%E5%BD%A2%E9%A2%9C%E8%89%B2/image_10.75098832.png"></p>
+<p>最终效果图如下</p>
+<p><img src="/2023/11/14/20-Verdi-%E4%BF%AE%E6%94%B9%E6%B3%A2%E5%BD%A2%E9%A2%9C%E8%89%B2/image_11.6b335024.png"></p>
+<hr>
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以通过知乎私信，也可以邮件至 maxwellwave@foxmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -588,11 +651,11 @@
 <!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
