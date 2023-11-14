@@ -6,23 +6,21 @@
   <meta name="keywords" content=" command , tool ">
   <meta name="description" content="Linux工具-ImageMagick | MaxwellWave">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="1 问题在使用Verdi调试的时候发现对于数组信号，verdi会提示如下错误  2 原因与解决这是因为在仿真顶层模块没有对数组的仿真数据进行记录，正确的方法是在波形记录代码中添加$fsdbDumpMDA();函数，如下所示  再次添加波形就可以发现数组已经可以成功添加了，并且Verdi还进行了分组，看起来比modelsim看起来更加方便，如下图所示">
+<meta name="description" content="1 问题在使用verdi观察波形时，发现verdi和modelsim不一样，其默认高位为0不显示，不利于仿真调试。如下所示，out4的位宽是12bit，但是在波形显示中只有9bit，有时候不利于调试。  2 解决方法解决方法如下，点击nWave波形窗口下的 View-&gt; Lwading Zeros即可，如下图所示，此时out4显示12位的数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="17-Verdi-显示数组波形">
-<meta property="og:url" content="http://example.com/2023/11/14/17-Verdi-%E6%98%BE%E7%A4%BA%E6%95%B0%E7%BB%84%E6%B3%A2%E5%BD%A2/index.html">
+<meta property="og:title" content="Verdi-高位显示0设置">
+<meta property="og:url" content="http://example.com/2023/11/14/18-Verdi-%E9%AB%98%E4%BD%8D%E6%98%BE%E7%A4%BA0%E8%AE%BE%E7%BD%AE/index.html">
 <meta property="og:site_name" content="MaxwellWave">
-<meta property="og:description" content="1 问题在使用Verdi调试的时候发现对于数组信号，verdi会提示如下错误  2 原因与解决这是因为在仿真顶层模块没有对数组的仿真数据进行记录，正确的方法是在波形记录代码中添加$fsdbDumpMDA();函数，如下所示  再次添加波形就可以发现数组已经可以成功添加了，并且Verdi还进行了分组，看起来比modelsim看起来更加方便，如下图所示">
+<meta property="og:description" content="1 问题在使用verdi观察波形时，发现verdi和modelsim不一样，其默认高位为0不显示，不利于仿真调试。如下所示，out4的位宽是12bit，但是在波形显示中只有9bit，有时候不利于调试。  2 解决方法解决方法如下，点击nWave波形窗口下的 View-&gt; Lwading Zeros即可，如下图所示，此时out4显示12位的数据">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/doc/02-record/md/image_1.902e4eb6.png">
-<meta property="og:image" content="http://example.com/doc/02-record/md/image_2.fe1941a2.png">
-<meta property="og:image" content="http://example.com/doc/02-record/md/image_3.b5cf9dc5.png">
-<meta property="article:published_time" content="2023-11-14T01:38:40.000Z">
-<meta property="article:modified_time" content="2023-11-14T01:39:57.780Z">
+<meta property="og:image" content="http://example.com/doc/02-record/md/image_1.adf0abb1.png">
+<meta property="og:image" content="http://example.com/doc/02-record/md/image_2.5f7ccc86.png">
+<meta property="article:published_time" content="2023-11-14T01:41:51.000Z">
+<meta property="article:modified_time" content="2023-11-14T01:42:47.852Z">
 <meta property="article:author" content="MaxwellWave">
-<meta property="article:tag" content="EDA">
 <meta property="article:tag" content="Verdi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/doc/02-record/md/image_1.902e4eb6.png">
+<meta name="twitter:image" content="http://example.com/doc/02-record/md/image_1.adf0abb1.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -120,7 +118,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(17)</small>
+                <small>(18)</small>
             
         </div>
     </li>
@@ -173,7 +171,7 @@
                     <div data-rel="Tools">
                         
                         Tools
-                        <small>(6)</small>
+                        <small>(7)</small>
                         
                     </div>
                     
@@ -208,8 +206,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="17">
-<input type="hidden" id="yelog_site_word_count" value="29.1k">
+<input type="hidden" id="yelog_site_posts_number" value="18">
+<input type="hidden" id="yelog_site_word_count" value="29.2k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -327,10 +325,19 @@
         
         
         <a  class="全部文章 Tools "
+           href="/2023/11/14/18-Verdi-%E9%AB%98%E4%BD%8D%E6%98%BE%E7%A4%BA0%E8%AE%BE%E7%BD%AE/"
+           data-tag="Verdi"
+           data-author="" >
+            <span class="post-title" title="Verdi-高位显示0设置">Verdi-高位显示0设置</span>
+            <span class="post-date" title="2023-11-14 09:41:51">2023/11/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 Tools "
            href="/2023/11/14/17-Verdi-%E6%98%BE%E7%A4%BA%E6%95%B0%E7%BB%84%E6%B3%A2%E5%BD%A2/"
            data-tag="EDA,Verdi"
            data-author="" >
-            <span class="post-title" title="17-Verdi-显示数组波形">17-Verdi-显示数组波形</span>
+            <span class="post-title" title="Verdi-显示数组波形">Verdi-显示数组波形</span>
             <span class="post-date" title="2023-11-14 09:38:40">2023/11/14</span>
         </a>
         
@@ -339,7 +346,7 @@
            href="/2023/11/14/16-Verdi-%E6%98%BE%E7%A4%BA%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0/"
            data-tag="EDA,Verdi"
            data-author="" >
-            <span class="post-title" title="16-Verdi-显示有符号数">16-Verdi-显示有符号数</span>
+            <span class="post-title" title="Verdi-显示有符号数">Verdi-显示有符号数</span>
             <span class="post-date" title="2023-11-14 09:35:07">2023/11/14</span>
         </a>
         
