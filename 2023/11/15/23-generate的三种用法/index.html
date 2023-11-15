@@ -6,26 +6,18 @@
   <meta name="keywords" content=" Verilog ">
   <meta name="description" content="generate的三种用法 | MaxwellWave">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="0 前言在学习图像去雾的过程中发现仿真的时候可以通过$fread函数直接对bmp格式的图像进行数据的读取，输出的时候也同样可以通过fwrite函数进行写入，最终将输出的数据直接以bmp格式的图像进行显示，便于硬件算法实现的仿真验证。通过资料查询发现，bmp格式的图像数据和yuv格式一样，其内部都是以二进制的数据形式存在，故而可以直接通过Verilog的系统函数进行调用。由于bmp格式不仅仅包含图像">
+<meta name="description" content="0 概念generate块语句提供了通过参数改变模块结构的能力，技能把重复的结构变得简单，也能把实例多个子模块的工作变得轻松。 generate块语句包含循环和条件两种结构，循环结构即通过for语句和参数，实现多个assign或者always语句，模块的多个实例化等；条件结构有if-else generate语句和case generate语句，常用于根据参数选择相应的模块。 1 for 循环结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bmp格式图像数据">
-<meta property="og:url" content="http://example.com/2023/11/15/22-bmp%E6%A0%BC%E5%BC%8F%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE/index.html">
+<meta property="og:title" content="generate的三种用法">
+<meta property="og:url" content="http://example.com/2023/11/15/23-generate%E7%9A%84%E4%B8%89%E7%A7%8D%E7%94%A8%E6%B3%95/index.html">
 <meta property="og:site_name" content="MaxwellWave">
-<meta property="og:description" content="0 前言在学习图像去雾的过程中发现仿真的时候可以通过$fread函数直接对bmp格式的图像进行数据的读取，输出的时候也同样可以通过fwrite函数进行写入，最终将输出的数据直接以bmp格式的图像进行显示，便于硬件算法实现的仿真验证。通过资料查询发现，bmp格式的图像数据和yuv格式一样，其内部都是以二进制的数据形式存在，故而可以直接通过Verilog的系统函数进行调用。由于bmp格式不仅仅包含图像">
+<meta property="og:description" content="0 概念generate块语句提供了通过参数改变模块结构的能力，技能把重复的结构变得简单，也能把实例多个子模块的工作变得轻松。 generate块语句包含循环和条件两种结构，循环结构即通过for语句和参数，实现多个assign或者always语句，模块的多个实例化等；条件结构有if-else generate语句和case generate语句，常用于根据参数选择相应的模块。 1 for 循环结构">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2023/11/15/22-bmp%E6%A0%BC%E5%BC%8F%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE/image_1.7b0a881b.png">
-<meta property="og:image" content="http://example.com/2023/11/15/22-bmp%E6%A0%BC%E5%BC%8F%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE/image_2.c5c54c98.png">
-<meta property="og:image" content="http://example.com/2023/11/15/22-bmp%E6%A0%BC%E5%BC%8F%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE/image_3.0ea87151.png">
-<meta property="og:image" content="http://example.com/2023/11/15/22-bmp%E6%A0%BC%E5%BC%8F%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE/image_4.e4e6f56e.png">
-<meta property="og:image" content="http://example.com/2023/11/15/22-bmp%E6%A0%BC%E5%BC%8F%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE/image_5.248b7481.png">
-<meta property="og:image" content="http://example.com/2023/11/15/22-bmp%E6%A0%BC%E5%BC%8F%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE/image_6.85dc5b77.png">
-<meta property="og:image" content="http://example.com/2023/11/15/22-bmp%E6%A0%BC%E5%BC%8F%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE/image_7.ac180dbe.png">
-<meta property="article:published_time" content="2023-11-15T11:40:55.000Z">
-<meta property="article:modified_time" content="2023-11-15T11:43:31.888Z">
+<meta property="article:published_time" content="2023-11-15T13:43:41.000Z">
+<meta property="article:modified_time" content="2023-11-15T13:47:39.843Z">
 <meta property="article:author" content="MaxwellWave">
-<meta property="article:tag" content="Image">
+<meta property="article:tag" content="Verilog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/11/15/22-bmp%E6%A0%BC%E5%BC%8F%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE/image_1.7b0a881b.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -598,12 +590,12 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2023-11-15 21:44:27'>2023-11-15 21:43</time>
+            Created At : <time class="date" title='Updated At: 2023-11-15 21:47:39'>2023-11-15 21:43</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:746</span>
+        <span>Count:744</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -651,27 +643,15 @@ endgenerate
 <p>举个格雷码转二进制的实例</p>
 <pre><code class="verilog">module gray2bin #(parameter SIZE =8)
 (
-  input \[SIZE-1:0\] gray,
-
+  input [SIZE-1:0] gray,
   output [SIZE-1:0] bin
-
-
 );
   genvar i;
-
   generate
-
     for(i=0; i&lt;SIZE; i=i+1) begin:bin
-
       assign bin[i] = ^gray[SIZE-1:i];
-
-
     end
-
-
   endgenerate
-
-
 endmodule
 </code></pre>
 <p>需要注意的是关于<code>gevar</code>有一些要求</p>
@@ -684,21 +664,12 @@ endmodule
 <h2 id="2-if-else条件结构"><a href="#2-if-else条件结构" class="headerlink" title="2 if-else条件结构"></a>2 if-else条件结构</h2><p>在条件<code>generate</code>块结构中，无论是<code>if-generate</code>还是<code>case-generate</code>，都是基于常数表达式的值从一组生成块中最多选择一个，然后把它实例化到模块中。因为最多只能选择一个生成块实例化，所以这些生成块的名字可以一样。其结构如下</p>
 <pre><code class="verilog"> generate
   if(condition) begin :block\_name // 条件只能是parameter定义的参数
-
     ... // assign 、always、initial、模块例化等
-
-
   end
-
   else if(condition) begin :block\_name
-
   ...
-
   end
-
   else ;
-
-
 endgenerate
 </code></pre>
 <p>举个<a target="_blank" rel="noopener" href="https://maxwellwave.github.io/2023/11/13/13-%E6%9F%A5%E6%89%BE%E9%A6%961%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/">查找首1的三种方法 | MaxwellWave</a>采用递归模块的实例</p>
@@ -709,7 +680,7 @@ endgenerate
     output  [$clog2(WIDTH)-1 : 0]    encode,
     output                          valid
 );
-
+    
     generate
         if(WIDTH == 2&#39;d2) begin
             assign  valid   = |decode;
@@ -738,31 +709,16 @@ endmodule
 <pre><code class="verilog">generate
   case (condition): //condition只能是定义的参数
 
-    0：begin : block\_name
-
+    0：begin : block_name
       语句
-
-
     end
-
-    1: begin : block\_name
-
+    1: begin : block_name
       语句
-
-
     end
-
     default: begin :block_name
-
       语句
-
-
     end
-
-
   endcase
-
-
 endgenerate
 </code></pre>
 <p>举个参数实例加法器的例子</p>
