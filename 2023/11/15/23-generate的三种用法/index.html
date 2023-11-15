@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>vmware下载及安装 | MaxwellWave</title>
-  <meta name="keywords" content=" vmware ">
-  <meta name="description" content="vmware下载及安装 | MaxwellWave">
+  <title>generate的三种用法 | MaxwellWave</title>
+  <meta name="keywords" content=" Verilog ">
+  <meta name="description" content="generate的三种用法 | MaxwellWave">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="0 前言在学习图像去雾的过程中发现仿真的时候可以通过$fread函数直接对bmp格式的图像进行数据的读取，输出的时候也同样可以通过fwrite函数进行写入，最终将输出的数据直接以bmp格式的图像进行显示，便于硬件算法实现的仿真验证。通过资料查询发现，bmp格式的图像数据和yuv格式一样，其内部都是以二进制的数据形式存在，故而可以直接通过Verilog的系统函数进行调用。由于bmp格式不仅仅包含图像">
 <meta property="og:type" content="article">
@@ -571,9 +571,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-10-vmware下载及安装" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-23-generate的三种用法" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">vmware下载及安装</h1>
+        <h1 class="article-title">generate的三种用法</h1>
     
     <div class="article-meta">
         
@@ -583,7 +583,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Tools">Tools</a>
+            <a  data-rel="IC">IC</a>
             
         </span>
         
@@ -591,19 +591,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">vmware</a>
+            <a class="color3">Verilog</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-11-15 15:36:02'>2022-11-15 11:33</time>
+            Created At : <time class="date" title='Updated At: 2023-11-15 21:44:27'>2023-11-15 21:43</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:620</span>
+        <span>Count:746</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -622,7 +622,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Win11%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85VMware"><span class="toc-text">Win11下载并安装VMware</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="toc-text">0 前置条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="toc-text">1 软件下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3"><span class="toc-text">2 问题与解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E8%99%9A%E6%8B%9F%E6%9C%BAVT-x%E5%A4%84%E4%BA%8E%E7%A6%81%E7%94%A8%E7%8A%B6%E6%80%81"><span class="toc-text">2.1 虚拟机VT-x处于禁用状态</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">解决方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E9%80%9F%E8%BF%87%E6%85%A2"><span class="toc-text">2.2 虚拟机网速过慢</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0-1"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-1"><span class="toc-text">解决方法</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E6%A6%82%E5%BF%B5"><span class="toc-text">0 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-for-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84"><span class="toc-text">1 for 循环结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-if-else%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">2 if-else条件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-case%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">3 case条件结构</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -638,25 +638,148 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Win11下载并安装VMware"><a href="#Win11下载并安装VMware" class="headerlink" title="Win11下载并安装VMware"></a>Win11下载并安装VMware</h1><h2 id="0-前置条件"><a href="#0-前置条件" class="headerlink" title="0 前置条件"></a>0 前置条件</h2><p>打开控制面板，在程序&gt;-卸载程序&gt;-左侧启用或关闭windows功能界面下，勾选<code>适用于linux的Windows子系统</code>和<code>虚拟机平台</code>，取消勾选<code>Hyper-V</code>，如下图所示<br><img src="/2022/11/15/10-vmware%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85/20221115144944.png"><br>需要注意的是最新版本的win10和win11是没有<code>Hyper-V</code>，需要新建一个<code>bat</code>脚本文件手动添加，脚本内容如下</p>
-<pre><code class="bat">pushd &quot;%~dp0&quot;
- 
-dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt
- 
-for /f %%i in (&#39;findstr /i . hyper-v.txt 2^&gt;nul&#39;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;
-del hyper-v.txt
-Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL 
+        <h2 id="0-概念"><a href="#0-概念" class="headerlink" title="0 概念"></a>0 概念</h2><p><code>generate</code>块语句提供了通过参数改变模块结构的能力，技能把重复的结构变得简单，也能把实例多个子模块的工作变得轻松。</p>
+<p><code>generate</code>块语句包含循环和条件两种结构，循环结构即通过<code>for</code>语句和参数，实现多个<code>assign</code>或者<code>always</code>语句，模块的多个实例化等；条件结构有<code>if-else generate</code>语句和<code>case generate</code>语句，常用于根据参数选择相应的模块。</p>
+<h2 id="1-for-循环结构"><a href="#1-for-循环结构" class="headerlink" title="1 for 循环结构"></a>1 for 循环结构</h2><p><code>generate</code>允许用<code>for</code>循环多次实例化生成块，需要使用<code>genvar</code>声明的变量，其结构如下</p>
+<pre><code class="verilog">genvar i;
+generate
+    for(i=0; i&lt;N; i=i+1) begin : block_name
+... // assign 、always、initial、模块例化等
+    end
+endgenerate
 </code></pre>
-<p>安装后重启即可在启用或关闭windows功能界面下找到<code>Hyper-V</code>，然后取消勾选。</p>
-<h2 id="1-软件下载"><a href="#1-软件下载" class="headerlink" title="1 软件下载"></a>1 软件下载</h2><p>官网下载地址：点击<a target="_blank" rel="noopener" href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">此处</a>，安装过程中务必勾选增强型键盘功能，否则会导致虚拟系统无法连接到键盘，其余根据自定义选项操作即可。</p>
-<h2 id="2-问题与解决"><a href="#2-问题与解决" class="headerlink" title="2 问题与解决"></a>2 问题与解决</h2><h3 id="2-1-虚拟机VT-x处于禁用状态"><a href="#2-1-虚拟机VT-x处于禁用状态" class="headerlink" title="2.1 虚拟机VT-x处于禁用状态"></a>2.1 虚拟机VT-x处于禁用状态</h3><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>安装后ubuntu系统后启动出现未能启动虚拟机的窗口<br><img src="/2022/11/15/10-vmware%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85/20221115151733.png"></p>
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>这是因为电脑没有启用虚拟化，需按照以下步骤进行解决</p>
-<p>第一步：重启电脑，按F12（不同品牌机方式不同）进入BIOS界面</p>
-<p>第二步：找到<code>intel virtual technology</code>按回车，将<code>Disable</code> 改为<code>Enable</code>，需注意不同机型<code>intel virtual technology</code>在不同位置，网上所查询的位置可能不适用于你的机型。此次本人所使用的为联想主机电脑在<code>Advanced &gt;- CPU Setup</code>界面下，此外本人另外两台笔记本电脑无需此设置。</p>
-<h3 id="2-2-虚拟机网速过慢"><a href="#2-2-虚拟机网速过慢" class="headerlink" title="2.2 虚拟机网速过慢"></a>2.2 虚拟机网速过慢</h3><h4 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h4><p>当新建好一个 VMware 的虚拟机后，上网时会发现网速非常的慢，下载东西很不方便。</p>
-<h4 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h4><p>第一步：如图，新建好的虚拟机默认网络适配器一般使用的是 NAT，我们要对此处进行修改双击网络适配器打开设置界面，或点击上方的编辑虚拟机设置。</p>
-<p>第二步：网络连接窗口处将其修改为桥接模式。下图时我已经修改好的结果<br><img src="/2022/11/15/10-vmware%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85/20221115152308.png">  </p>
-<p>第三步：打开网络连接下方的高级选项，对图中两处传入传输和传出传输的带宽设置为不受限。点击确定后退出<br><img src="/2022/11/15/10-vmware%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85/20221115153209.png">  </p>
+<p>举个格雷码转二进制的实例</p>
+<pre><code class="verilog">module gray2bin #(parameter SIZE =8)
+(
+  input \[SIZE-1:0\] gray,
+
+  output [SIZE-1:0] bin
+
+
+);
+  genvar i;
+
+  generate
+
+    for(i=0; i&lt;SIZE; i=i+1) begin:bin
+
+      assign bin[i] = ^gray[SIZE-1:i];
+
+
+    end
+
+
+  endgenerate
+
+
+endmodule
+</code></pre>
+<p>需要注意的是关于<code>gevar</code>有一些要求</p>
+<ul>
+<li><code>gevar</code>既可以在<code>generate</code>语句的里面声明，也可以在<code>generate</code>语句外面声明</li>
+<li><code>genvar</code>是正整数，只能用于<code>generate</code>循环，在仿真时不存在</li>
+<li>两个使用同一个<code>genvar</code>的<code>generate</code>循环不能嵌套</li>
+<li>可以把<code>genvar</code>当做常量，用于修改模块的parameter</li>
+</ul>
+<h2 id="2-if-else条件结构"><a href="#2-if-else条件结构" class="headerlink" title="2 if-else条件结构"></a>2 if-else条件结构</h2><p>在条件<code>generate</code>块结构中，无论是<code>if-generate</code>还是<code>case-generate</code>，都是基于常数表达式的值从一组生成块中最多选择一个，然后把它实例化到模块中。因为最多只能选择一个生成块实例化，所以这些生成块的名字可以一样。其结构如下</p>
+<pre><code class="verilog"> generate
+  if(condition) begin :block\_name // 条件只能是parameter定义的参数
+
+    ... // assign 、always、initial、模块例化等
+
+
+  end
+
+  else if(condition) begin :block\_name
+
+  ...
+
+  end
+
+  else ;
+
+
+endgenerate
+</code></pre>
+<p>举个<a target="_blank" rel="noopener" href="https://maxwellwave.github.io/2023/11/13/13-%E6%9F%A5%E6%89%BE%E9%A6%961%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/">查找首1的三种方法 | MaxwellWave</a>采用递归模块的实例</p>
+<pre><code class="verilog">module priencr#(
+    parameter WIDTH = 64
+)(
+    input   [WIDTH-1        : 0]    decode,
+    output  [$clog2(WIDTH)-1 : 0]    encode,
+    output                          valid
+);
+
+    generate
+        if(WIDTH == 2&#39;d2) begin
+            assign  valid   = |decode;
+            assign  encode  = decode[1];
+        end
+        else if(WIDTH &amp; (WIDTH -1)) begin   // WIDTH is not a power of two, pad out the input WIDTH zero bits to the next power of two WIDTH
+            priencr #(1&lt;&lt;$clog2(WIDTH)) priencer (&#123;1&lt;&lt;$clog2(WIDTH)&#123;1&#39;b0&#125;&#125; | decode, encode, valid);
+        end
+        else begin
+            wire [$clog2(WIDTH)-2 : 0] encode_low;
+            wire [$clog2(WIDTH)-2 : 0] encode_high;
+
+            wire valid_low, valid_high;
+
+            priencr #(WIDTH &gt;&gt; 1) priencr_low(decode[(WIDTH&gt;&gt;1)-1 : 0], encode_low, valid_low);
+            priencr #(WIDTH &gt;&gt; 1) priencr_high(decode[WIDTH-1 : WIDTH&gt;&gt;1], encode_high, valid_high);
+
+            assign valid    =   valid_low | valid_high;
+            assign encode   =   valid_high ? &#123;1&#39;b1,encode_high&#125; : &#123;1&#39;b0,encode_low&#125;;
+        end
+    endgenerate
+
+endmodule
+</code></pre>
+<h2 id="3-case条件结构"><a href="#3-case条件结构" class="headerlink" title="3 case条件结构"></a>3 case条件结构</h2><p>其结构如下，实际上不加`block_name`也可以，只要确认不需要通过模块连接信号即可</p>
+<pre><code class="verilog">generate
+  case (condition): //condition只能是定义的参数
+
+    0：begin : block\_name
+
+      语句
+
+
+    end
+
+    1: begin : block\_name
+
+      语句
+
+
+    end
+
+    default: begin :block_name
+
+      语句
+
+
+    end
+
+
+  endcase
+
+
+endgenerate
+</code></pre>
+<p>举个参数实例加法器的例子</p>
+<pre><code class="verilog">generate
+ case(WIDTH)
+   1: begin: adder
+      adder_1bit x1(c0, sum, a, b, ci);
+   end
+   2: begin: adder
+      adder_2bit x1(c0, sum, a, b, ci);
+   end
+   default: begin: adder
+      adder_cla #（WIDTH） x1(co, sum, a, b,ci)；
+  end
+  endcase
+endgenerate
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以通过知乎私信，也可以邮件至 maxwellwave@foxmail.com </span>
