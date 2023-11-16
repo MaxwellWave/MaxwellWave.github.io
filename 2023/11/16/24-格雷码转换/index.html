@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MaxwellWave</title>
+  <title>格雷码转换 | MaxwellWave</title>
   <meta name="keywords" content="">
-  <meta name="description" content="MaxwellWave">
+  <meta name="description" content="格雷码转换 | MaxwellWave">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="0 格雷码简介格雷码是一个叫弗兰克*格雷的人在 1953 年发明的，最初用于通信。格雷码是一种循环二进制码或者叫作反射二进制码。格雷码的特点是从一个数变为相邻的一个数时，只有一个数据位发生跳变，由于这种特点，就可以避免二进制编码计数组合电路中出现的亚稳态。格雷码常用于通信，FIFO 或者 RAM 地址寻址计数器中。 格雷码属于可靠性编码，是一种错误最小化的编码方式，因为虽然二进制码可以直接由数&amp;#">
 <meta property="og:type" content="article">
@@ -65,7 +65,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -578,12 +578,53 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-24-格雷码转换" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Welcome-to-MaxwellWave%E2%80%99s-blog"><span class="toc-text">Welcome to MaxwellWave’s blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2"><span class="toc-text">关于博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%90%8D%E7%A7%B0"><span class="toc-text">关于名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%B9%B3%E5%8F%B0"><span class="toc-text">关于平台</span></a></li></ol></li></ol>
+        <h1 class="article-title">格雷码转换</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="IC">IC</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2023-11-16 22:49:37'>2023-11-16 22:44</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:1.7k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E6%A0%BC%E9%9B%B7%E7%A0%81%E7%AE%80%E4%BB%8B"><span class="toc-text">0 格雷码简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A0%BC%E9%9B%B7%E7%A0%81%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6"><span class="toc-text">1 格雷码转二进制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%A0%BC%E9%9B%B7%E7%A0%81"><span class="toc-text">2 二进制转格雷码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%9E%E7%8E%B0"><span class="toc-text">3 实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BB%BF%E7%9C%9F"><span class="toc-text">4 仿真</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -596,49 +637,114 @@
     }
 </style>
 </div>
-            <h1 id="Welcome-to-MaxwellWave’s-blog"><a href="#Welcome-to-MaxwellWave’s-blog" class="headerlink" title="Welcome to MaxwellWave’s blog"></a>Welcome to MaxwellWave’s blog</h1><h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p>本博客是博主MaxwellWave的个人网站，主要用来记录自己的学习过程，涉及数字IC、FPGA、Linux等方面的相<br>关知识。</p>
-<p>到目前为止已经记录了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<p>目前本站未开通评论功能，您可通过头像下方的知乎链接私信博主，也可以通过邮件<a href="mailto:&#109;&#x61;&#120;&#x77;&#x65;&#x6c;&#108;&#119;&#x61;&#x76;&#x65;&#x40;&#102;&#x6f;&#x78;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#109;&#x61;&#120;&#x77;&#x65;&#x6c;&#108;&#119;&#x61;&#x76;&#x65;&#x40;&#102;&#x6f;&#x78;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a>联系</p>
-<h2 id="关于名称"><a href="#关于名称" class="headerlink" title="关于名称"></a>关于名称</h2><p>博主本科是学通信的，在学习理论知识的时候并没有直观地感受到麦克斯韦的强大，直到在大三的时候自己手动焊接一步一步做了一个收音机才深刻感受到电磁波的魅力，才知道除了我们肉眼可见的真实世界之外，物质还存在在一种新的形式——电磁波，故博主以麦克斯韦电磁波作为网站名称致敬，但由于英文 <strong>Maxwell Electromagnetic Waves</strong>太长，博主就将 <strong>Electromagnetic</strong>删除，这就有了本站名称的由来~</p>
-<h2 id="关于平台"><a href="#关于平台" class="headerlink" title="关于平台"></a>关于平台</h2><p>本站是通过 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，部署在 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>主题 <a target="_blank" rel="noopener" href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 原创作者叶落阁已经在github上开源，大家如有需要可自行前往下载</p>
-<p>本站主要功能：</p>
-<ul>
-<li><p>搜索支持文章标题、标签(#标签)、作者(@作者)</p>
-</li>
-<li><p>pad&#x2F;手机等移动端适配</p>
-</li>
-<li><p>页面全局快捷键 </p>
-<table>
-<thead>
-<tr>
-<th align="center">快捷键</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">s</td>
-<td align="center">打开&#x2F;取消全屏</td>
-</tr>
-<tr>
-<td align="center">w</td>
-<td align="center">打开&#x2F;关闭文章目录</td>
-</tr>
-<tr>
-<td align="center">i</td>
-<td align="center">获取搜索框焦点</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0-格雷码简介"><a href="#0-格雷码简介" class="headerlink" title="0 格雷码简介"></a>0 格雷码简介</h2><p>格雷码是一个叫弗兰克*格雷的人在 1953 年发明的，最初用于通信。格雷码是一种循环二进制码或者叫作反射二进制码。格雷码的特点是从一个数变为相邻的一个数时，只有一个数据位发生跳变，由于这种特点，就可以避免二进制编码计数组合电路中出现的亚稳态。格雷码常用于通信，FIFO 或者 RAM 地址寻址计数器中。</p>
+<p>格雷码属于可靠性编码，是一种错误最小化的编码方式，因为虽然二进制码可以直接由数&#x2F;模转换器转换成模拟信号，但在某些情况，例如从十进制的 3 转换为 4 时二进制码的每一位都要变，能使数字电路产生很大的尖峰电流脉冲。而格雷码则没有这一缺点，它在相邻位间转换时，只有一位产生变化。它大大地减少了由一个状态到下一个状态时逻辑的混淆。</p>
+<p><img src="/../../../doc/02-record/md/image_1.d1d96e5b.png"></p>
+<p>从上面的对应关系可以看出，当数字从 7 变为 8 时，4 位二进制数都发生跳变，如果直接使用异步时钟采样这些数字信号，这就很可能会发生亚稳态或者数据采样错误。而采用格雷码，就可以避免 4 位二进制数都同时发生跳变，就算出现亚稳态，最多也就一位出现错误。</p>
+<h2 id="1-格雷码转二进制"><a href="#1-格雷码转二进制" class="headerlink" title="1 格雷码转二进制"></a>1 格雷码转二进制</h2><p>使用格雷码的最高位作为二进制的最高位，二进制次高位产生过程是使用二进制的高位和次高位格雷码相异或得到，其他位的值与次高位产生过程类似。假设二进制和格雷码各个位分别使用如下字符表示：</p>
+<p>n 位的二进制：Bn, Bn-1, Bn-2。。。B2, B1 , B0;</p>
+<p>n 位的格雷码：Gn, Gn-1, Gn-2。。。G2, G1, G0;</p>
+<p>转换公式：</p>
+<p>Bn &#x3D;Gn； Bi-1 &#x3D; Bi ^ Gi-1；( i&#x3D;1,2,n-1; )</p>
+<p>其运算过程的示意图如下图所示（这里以 4 位的数据位宽为例）：</p>
+<p><img src="/../../../doc/02-record/md/image_2.7f83e863.png"></p>
+<p>从图中可以看出，二进制最高位和格雷码最高位相同，都是 1，次高位为二进制的高位和次高位格雷码相异或得到，即 bit2 为 0&#x3D;1^1。</p>
+<h2 id="2-二进制转格雷码"><a href="#2-二进制转格雷码" class="headerlink" title="2 二进制转格雷码"></a>2 二进制转格雷码</h2><p>二进制的最高位作为格雷码的最高位，次高位的格雷码为二进制的高位和次高位相异或得到，其他位与次高位类似。假设二进制和格雷码各个位分别使用如下字符表示：</p>
+<p>n 位的二进制：Bn, Bn-1,Bn-2。。。B2,B1,B0; n 位的格雷码：Gn, Gn-1,Gn-2。。。G2,G1,G0;</p>
+<p>转换公式： Gn &#x3D; Bn； Gi-1&#x3D;Bi ^ Bi-1； ( i&#x3D;1,2,n-1; )</p>
+<p>其运算过程的示意图如下图所示（这里以 8 位的数据位宽为例）：</p>
+<p><img src="/../../../doc/02-record/md/image_3.29df8720.png"></p>
+<p>从图可以很容易的看出，二进制码右移 1 位后与本身异或，其结果就是格雷码。从最右边一位起，依次将每一位与左边一位异或（XOR），作为对应格雷码该位的值，最左边一位不变。</p>
+<h2 id="3-实现"><a href="#3-实现" class="headerlink" title="3 实现"></a>3 实现</h2><pre><code class="verilog">module gray_bin #(
+    parameter   N = 4
+)(
+    input   [N-1:0]     gray_in,
+    output  [N-1:0]     gray_out
+);
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+    wire    [N-1:0]     bin;
+    wire    [N-1:0]     bin_gray;
+
+    // gray to bin solution 1
+    genvar i;
+    generate
+        for(i=0; i&lt;N; i=i+1) begin: gray_to_bin
+            assign bin[i] = ^gray_in[N-1:i];
+        end
+    endgenerate
+
+    //gray to bin solution 2
+/*
+    assign bin[N-1] = gray_in[N-1];
+    genvar i;
+    generate
+        for(i=0; i&lt;N-1; i=i+1) begin:gray_to_bin
+            assign bin[i] = bin[i+1] ^ gray_in[i];
+        end
+    endgenerate
+*/
+    //bin to gray
+    assign gray_out = (bin &gt;&gt; 1) ^ bin;
+    //test
+  // 逻辑运算符单bit测试
+
+  wire test_sign1, test_sign2, test_sign3;
+
+  assign test_sign1 = ^gray_in[N-1\];
+
+  assign test_sign2 = &amp;gray_in[N-1\];
+
+  assign test_sign3 = |gray_in[N-1\];
+
+  
+
+
+endmodule
+</code></pre>
+<p>实现代码如上图所示，其中二进制转格雷码很简单，即二进制输入数据右移一位后和自身按位异或即可。格雷码转二进制本文有两种方法，代码中的第二种实现方法即根据原理实现的，故而便于理解。而第一种方法则是将每位的转换都并行起来做了。如果将其拆解开来具体每bit的计算过程如下</p>
+<pre><code class="verilog">assign bin[0] = ^gray_in[3:0];
+assign bin[1] = ^gray_in[3:1];
+assign bin[2] = ^gray_in[3:2];
+assign bin[3] = ^gray_in[3:3]; 
+</code></pre>
+<blockquote>
+<p>位运算符<code>^、&amp;、|</code>如果是对数据本身操作，则是将数据的每bit进行运算，如bin[0]&#x3D;^gray_in[3:0]&#x3D;gray[3]^gray[2]^gray[1]^gray[0]。那如果是数据是1bit呢？那结果会是啥？经过博主上述代码的仿真测试，位运算符的对象如果是单比特数据，那么运算结果就是单比特数据本身。即bin[3]&#x3D;^gray_in[3:3]&#x3D;gray_in[3]。</p>
+</blockquote>
+<p>故而二进制的最高位bin[3]&#x3D;gray[3]，bin[2]根据理论分析应该是bin[3]^gray[2]，而是第一种方法采用的是bin[2]&#x3D;gray[3]^gray[2]。而根据运算结果知道gray[3]就是等于bin[3]的。同理bin[1]&#x3D;gray[3]^gray[2]^gray[1]。根据理论分析bin[1]应该是等于bin[2]^gray[1]，实际上bin[2]等于gray[3]^gray[2]的，从而推断出第一种方式是正确的</p>
+<p>如果大家想象一下两种方式的电路，第一种方法每bit依次采用了1个，2个，3个，一共6个异或门，而第二种方法每bit均采用一个异或门，故一共采用了3个异或门，即N-1个。而第一种方法采用的是全并行的，虽然资源消耗多，但是主频理论上会更快。而第二种方法虽然消耗的门级资源较少，但是其计算的组合逻辑链路会长，因为低位的bit位需要等待高位的计算完成。两种方案的电路图如下</p>
+<p><img src="/../../../doc/02-record/md/images/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%8E%E6%A0%BC%E9%9B%B7%E7%A0%81%E8%BD%AC%E6%8D%A2/1700146051682.png" alt="第一种方法"></p>
+<p><img src="/../../../doc/02-record/md/images/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%8E%E6%A0%BC%E9%9B%B7%E7%A0%81%E8%BD%AC%E6%8D%A2/1700145912664.png" alt="第二种方法"></p>
+<blockquote>
+<p>根据画出来的电路来看，两者的最大组合逻辑电路延迟是一样的，都经过了三个门级电路 。从实际的综合结果看第一种方式的电路应该是被综合工具进行了优化。两者在FPGA种消耗的LUT是一致的，都是两个。</p>
+</blockquote>
+<p><img src="/../../../doc/02-record/md/image_6.7c82417f.png"></p>
+<p><img src="/../../../doc/02-record/md/image_7.8d0daa45.png"></p>
+<h2 id="4-仿真"><a href="#4-仿真" class="headerlink" title="4 仿真"></a>4 仿真</h2><p>上述代码中通过对输入的格雷码转换成二进制然后再转回格雷码，通过观察输入输出数据是否一致即可判断格雷码转换是否正确，波形结果如下。其中test_sign信号就是为了验证逻辑运算符对单比特信号进行运算的结果是否是其本身。`gray_in`和`gray_out`为输入输出的格雷码，两者相同。</p>
+<p><img src="/../../../doc/02-record/md/image_8.5c7a68b7.png"></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以通过知乎私信，也可以邮件至 maxwellwave@foxmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -647,11 +753,11 @@
 <!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
